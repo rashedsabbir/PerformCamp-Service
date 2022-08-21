@@ -10,6 +10,7 @@ import AddEmployee from './Pages/Dashboard/AddEmployee';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import Tasks from './Pages/Dashboard/Task/TaskList';
 import UserTask from './Pages/Dashboard/Task/UserTask';
+import EmployeeReview from './Pages/Dashboard/EmployeeReview';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="taskList" element={<RequireManager><Tasks/></RequireManager>}></Route>
 
           <Route path="user-task" element={<UserTask/>}></Route>
+          <Route path="employeeReview" element={<EmployeeReview></EmployeeReview>}></Route>
         </Route>
       </Routes>
     </div>
