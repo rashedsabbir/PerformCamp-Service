@@ -12,6 +12,8 @@ import Tasks from './Pages/Dashboard/Task/TaskList';
 import UserTask from './Pages/Dashboard/Task/UserTask';
 import EmployeeReview from './Pages/Dashboard/EmployeeReview';
 import ManagerReview from './Pages/Dashboard/ManagerReview';
+import Feedback from './Pages/Dashboard/Feedback';
+import Deadline from './Pages/Dashboard/Deadline';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route path="user-task" element={<UserTask/>}></Route>
           <Route path="employeeReview" element={<EmployeeReview></EmployeeReview>}></Route>
           <Route path="managerReview" element={<ManagerReview></ManagerReview>}></Route>
+          <Route path="feedback" element={<Feedback></Feedback>}></Route>
+          <Route path="deadline" element={<Deadline></Deadline>}></Route>
         </Route>
       </Routes>
     </div>
