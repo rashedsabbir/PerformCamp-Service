@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './AddTask.css'
-import banner_1 from '../../../Image/banner/banner_1.png'
+import banner_1 from '../../../Images/banner/banner_1.png'
 import 'tw-elements';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import Loading from '../../Shared/Loading';
+
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';

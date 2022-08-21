@@ -2,9 +2,11 @@ import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
-import auth from '../../firebase.init';
+import auth from '../../../firebase.init';
 import useManager from '../../hooks/useManager';
-import Loading from './Loading';
+import Loading from '../../Loading/Loading';
+
+
 
 const RequireManager = ({children}) => {
     const [user, loading] = useAuthState(auth);

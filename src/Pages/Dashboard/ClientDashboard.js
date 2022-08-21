@@ -14,7 +14,7 @@ const ClientDashboard = () => {
     return (
         <div className="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col items-center ">
+            <div className="drawer-content flex flex-col items-center bg-base-200">
                 <Navbar></Navbar>
                 {/* <!-- Page content here --> */}               
                 <Outlet></Outlet> 
@@ -41,7 +41,8 @@ const ClientDashboard = () => {
                     </div>
                     <ul>
                         <li className='text-xl text-gray-50 '><Link to="/"><img src={home1} style={{width:'24px', height:'24px'}} alt="" />Home</Link></li>
-                        <li className='text-xl text-gray-50 '><Link to="/add-tasks"><img src={task} alt="" />Add Task</Link></li>
+                        <li className='text-xl text-gray-50 '><Link to="/add-task"><img src={task} alt="" />Add Task</Link></li>
+                        <li className='text-xl text-gray-50 '><Link to="/add-employee"><img src={task} alt="" />Add New Employee</Link></li>
                         <li className='text-xl text-gray-50 '><Link to="/leaderboard"><img src={leaderboard} alt="" />Leaderboard</Link></li>
                         <li className='text-xl text-gray-50 '><Link to="/deadline"><img src={schedule} alt="" />Deadline</Link></li>
                         <li className='text-xl text-gray-50 '><Link to="/review"><img src={search} alt="" />Review</Link></li>
