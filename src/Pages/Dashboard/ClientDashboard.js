@@ -8,7 +8,7 @@ import analytics from "../../Images/Icons/Chart.png";
 import files from "../../Images/Icons/Folder.png";
 import setting from "../../Images/Icons/Setting.png";
 import logo from "../../Images/logo/logo.png";
-import Navbar from '../Shared/Navbar';
+import Navbar from './Navbar';
 
 const ClientDashboard = () => {
     return (
