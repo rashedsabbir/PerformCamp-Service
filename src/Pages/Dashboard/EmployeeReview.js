@@ -28,7 +28,7 @@ const EmployeeReview = () => {
 
     return (
         <div>
-            <h1 className='text-2xl font-bold text-primary text-center py-8'>You have got {reviews.length} reviews from Managers</h1>
+            <h1 className='text-2xl font-bold text-primary text-center py-8'>You have {reviews.length} {reviews.length>1 ? 'reviews' : 'review'}  from Managers</h1>
             <div className='grid lg:grid-cols-2  lg:mx-16 '>
             
             {
@@ -38,7 +38,7 @@ const EmployeeReview = () => {
   
   <div class="flex justify-center md:justify-end -mt-16">
   
-    <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src={review.image}/>
+    <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src={review.image} alt=""/>
   </div>
   <div>
     <h2 class="text-gray-800 text-3xl font-semibold">Task: {review.title}</h2>

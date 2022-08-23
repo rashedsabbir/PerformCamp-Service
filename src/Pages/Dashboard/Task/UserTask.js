@@ -37,7 +37,7 @@ const handleConfirm = ({task, link, setLink})=> {
         appointee: task.appointee,
         employeeName:task.employeeName,
         email: task.email,
-        deadline: '',
+        deadline: task.deadline,
         proof: link
 
     }

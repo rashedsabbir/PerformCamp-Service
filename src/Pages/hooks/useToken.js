@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import auth from "../firebase.init";
+import { useEffect, useState } from "react";
+
 
 const useToken = user => {
     const [token, setToken] = useState('');

@@ -14,27 +14,39 @@ import EmployeeReview from './Pages/Dashboard/EmployeeReview';
 import ManagerReview from './Pages/Dashboard/ManagerReview';
 import Feedback from './Pages/Dashboard/Feedback';
 import Deadline from './Pages/Dashboard/Deadline';
+import Login from './Pages/Login/Login';
+import SignUp from './Pages/Signup/SignUp';
+import RequireAuth from './Pages/Dashboard/RequireAuth/RequireAuth';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<ClientDashboard></ClientDashboard>}>
-        <Route index element={<UserProfile></UserProfile>}></Route>
-          <Route path="leaderboard" element={<LeaderBoard></LeaderBoard>}></Route>
-          <Route path="goal" element={<Goal></Goal>}></Route>
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/signUp' element={<SignUp />}></Route>
 
-          <Route path="add-task" element={<RequireManager><AddTask/></RequireManager>}></Route>
-          <Route path="add-employee" element={<RequireManager><AddEmployee/></RequireManager>}></Route>
-          <Route path="makeManager" element={<RequireManager><MakeAdmin/></RequireManager>}></Route>
-          <Route path="taskList" element={<RequireManager><Tasks/></RequireManager>}></Route>
 
-          <Route path="user-task" element={<UserTask/>}></Route>
-          <Route path="employeeReview" element={<EmployeeReview></EmployeeReview>}></Route>
-          <Route path="managerReview" element={<ManagerReview></ManagerReview>}></Route>
-          <Route path="feedback" element={<Feedback></Feedback>}></Route>
-          <Route path="deadline" element={<Deadline></Deadline>}></Route>
+        <Route path='/' element={<RequireAuth><ClientDashboard></ClientDashboard></RequireAuth>}>
+          <Route index element={<RequireAuth><UserProfile></UserProfile></RequireAuth>}></Route>
+          <Route path='user-profile' element={<RequireAuth><UserProfile /></RequireAuth>}></Route>
+          <Route path="leaderboard" element={<RequireAuth><LeaderBoard></LeaderBoard></RequireAuth>}></Route>
+          <Route path="goal" element={<RequireAuth><Goal></Goal></RequireAuth>}></Route>
+
+          <Route path="add-task" element={<RequireManager><AddTask /></RequireManager>}></Route>
+          <Route path="add-employee" element={<RequireManager><AddEmployee /></RequireManager>}></Route>
+          <Route path="makeManager" element={<RequireManager><MakeAdmin /></RequireManager>}></Route>
+          <Route path="taskList" element={<RequireManager><Tasks /></RequireManager>}></Route>
+          <Route path="managerReview" element={<RequireManager><ManagerReview /></RequireManager>}></Route>
+
+          <Route path="user-task" element={<RequireAuth><UserTask /></RequireAuth>}></Route>
+          <Route path="employeeReview" element={<RequireAuth><EmployeeReview /></RequireAuth>}></Route>
+
+
+          <Route path="feedback" element={<RequireAuth><Feedback /></RequireAuth>}></Route>
+          <Route path="deadline" element={<RequireAuth><Deadline /></RequireAuth>}></Route>
         </Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
   );

@@ -33,7 +33,9 @@ const ManagerReview = () => {
     }, [user]);
 
     const onSubmit = data  => {
-        
+
+        console.log(data)
+
         data.givenBy=user?.displayName
         data.image=user?.photoURL
         fetch(`http://localhost:5000/employeeReviews`, {

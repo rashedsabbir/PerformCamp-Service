@@ -26,7 +26,7 @@ const AddTask = () => {
         //     deadline: '',
 
         // }
-
+        console.log(data)
 
         fetch('http://localhost:5000/task', {
             method: 'POST',
@@ -38,6 +38,7 @@ const AddTask = () => {
         })
             .then(res => res.json())
             .then(data => {
+
                 if (data.acknowledged === true) {
                     toast("Task Has been submit Successfully!")
                     reset();
@@ -109,12 +110,12 @@ const AddTask = () => {
                                     </div>
                                     <div class="flex  justify-center">
                                         <div class="datepicker mb-3 xl:w-96" data-mdb-toggle-button="false">
-                                        <label class="label">
+                                            <label class="label">
                                                 <span class="label-text font-bold">Select a Deadline From Calendar</span>
                                             </label>
                                             <input {...register("deadline", { required: "Deadline is required" })} type="text"
                                                 class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-amber-200 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                                                data-mdb-toggle="datepicker" value={format(date, 'P')} />
+                                                data-mdb-toggle="datepicker" value={format(date, 'y-MM-dd')} />
                                             <p className='text-red-500'>{errors.deadline?.message}</p>
                                             <div className='flex justify-center items-center'>
                                                 <DayPicker
