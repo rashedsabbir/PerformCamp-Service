@@ -35,7 +35,8 @@ const handleConfirm = ({task, link, setLink})=> {
         title: task.title,
         description: task.description,
         appointee: task.appointee,
-        employeeName:task.employeeName,
+        employeeName: task.employeeName,
+        employeeImage: user?.photoURL,
         email: task.email,
         deadline: task.deadline,
         proof: link

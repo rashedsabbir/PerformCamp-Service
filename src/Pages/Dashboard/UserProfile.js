@@ -2,6 +2,7 @@ import React from 'react';
 import './UserProfile.css'
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+
 const UserProfile = () => {
   const [user] = useAuthState(auth)
 
@@ -9,8 +10,9 @@ const UserProfile = () => {
 
     return (
         <div>
-            <h1 className='text-center text-2xl'>Welcome!</h1>
-            <div class="w-screen h-screen bg-white flex flex-row flex-wrap p-3">
+            <h1 className='text-center text-2xl'>Welcome {user?.displayName}!</h1>
+            
+            <div class="w-screen h-screen  flex flex-row flex-wrap p-3">
   <div class="mx-auto w-2/3 user-background">
   
 <div class="rounded-lg shadow-lg bg-rose-500 backdrop-blur-md w-full flex flex-row flex-wrap p-3 antialiased" >

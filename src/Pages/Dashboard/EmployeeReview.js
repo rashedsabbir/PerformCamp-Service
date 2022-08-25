@@ -29,7 +29,11 @@ const EmployeeReview = () => {
     return (
         <div>
             <h1 className='text-2xl font-bold text-primary text-center py-8'>You have {reviews.length} {reviews.length>1 ? 'reviews' : 'review'}  from Managers</h1>
+            <p className='text-rose-400 text-xl font-bold'><button className='btn btn-success rounded'>Update</button> your reviews to leaderboard to be the best employee of the month! </p>
             <div className='grid lg:grid-cols-2  lg:mx-16 '>
+            
+            
+            
             
             {
   reviews.map(review=>

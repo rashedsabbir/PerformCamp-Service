@@ -12,6 +12,10 @@ const ManagerReviewModal = ({ onSubmit, review}) => {
     
     <textarea rows="1" cols="30" className=" border-2 p-2 mr-2 border-blue-900 rounded-md" value={review._id} {...register("id", { required: true, maxLength: 50 })} />
 
+    <textarea rows="1" cols="30" className=" border-2 p-2 mr-2 border-blue-900 rounded-md" value={review.employeeName} {...register("employeeName", { required: true, maxLength: 50 })} />
+
+    <textarea rows="1" cols="45" className=" border-2 p-2 mr-2 border-blue-900 rounded-md" value={review.employeeImage} {...register("employeeImage")} />
+
     <textarea rows="1" cols="30" className=" border-2 p-2 mr-2 border-blue-900 rounded-md" value={review.email} {...register("email", { required: true, maxLength: 50 })} />
 
     <textarea rows="1" cols="20" className="border-2 p-2  border-blue-900 rounded-md" value={review.title} {...register("title", { required: true, maxLength: 50 })} />

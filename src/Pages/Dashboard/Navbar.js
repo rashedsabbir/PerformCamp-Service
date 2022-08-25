@@ -21,7 +21,7 @@ const Navbar = () => {
     return classes.filter(Boolean).join(' ')
   }
   return (
-    <div className="navbar sticky top-0 z-50 bg-teal-500">
+    <div className="navbar sticky top-0 z-50 bg-teal-600">
       <div className="flex-1">
         <a className="btn btn-ghost normal-case text-xl">Company Logo</a>
       </div>
@@ -31,9 +31,10 @@ const Navbar = () => {
         {
           user ? <div>
             <Menu as="div" className="ml-3 z-30 relative">
+            <span class="absolute right-8 my-1 z-10 animate-ping inline-flex rounded-full h-1 w-1 bg-green-300"></span>
               <div className="flex justify-center items-center gap-3">
                 <span className="text-white font-bold lg:block hidden">{user.displayName}</span>
-
+                
                 {
                   user.photoURL ? <img referrerPolicy="no-referrer"
                     className="h-8 w-8 rounded-full "
@@ -46,7 +47,7 @@ const Navbar = () => {
 
                   <span className="sr-only">Open user menu</span>
 
-                  <FontAwesomeIcon icon={faEllipsisVertical} className="h-6 hover:animate-spin w-5 text-black font-bold group-hover:text-rose-600" aria-hidden="true" />
+                  <FontAwesomeIcon icon={faEllipsisVertical} className="h-6 hover:animate-spin w-5 text-white font-bold group-hover:text-rose-600" aria-hidden="true" />
 
                 </Menu.Button>
 
