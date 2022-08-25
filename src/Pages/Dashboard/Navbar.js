@@ -6,6 +6,8 @@ import React, { Fragment } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
+import companyLogo from '../../Images/logo/BrosCreation.PNG'
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -23,7 +25,8 @@ const Navbar = () => {
   return (
     <div className="navbar sticky top-0 z-50 bg-teal-600">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">Company Logo</a>
+        <label htmlFor="my-drawer-2" className="btn bg-teal-700 drawer-button lg:hidden"><span><FontAwesomeIcon icon={faCircleArrowRight} size='2x'></FontAwesomeIcon></span></label>
+        <a className="btn btn-ghost normal-case text-xl"><img src={companyLogo} style={{width:"200px"}} alt="" /></a>
       </div>
       <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 

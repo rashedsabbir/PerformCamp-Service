@@ -19,6 +19,7 @@
     "fullcalendar": "^5.11.3",
     "moment": "^2.29.4",
     "react": "^18.2.0",
+    "react-datepicker": "^4.8.0",
     "react-day-picker": "^8.1.1",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.0.3",
