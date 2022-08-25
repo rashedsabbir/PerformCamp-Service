@@ -44,8 +44,12 @@ const MakeAdmin = () => {
   return (
     <div>
       <ToastContainer />
-
-      <div className="flex flex-col">
+      <div class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5  dark:bg-gray-800">
+        <div class="flex justify-center">
+          <p class="text-2xl text-gray-800 dark:text-gray-100 font-bold ">Add a New Manager</p>
+        </div>
+      </div>
+      <div className="flex flex-col mt-10">
         <div className=" overflow-x-auto ">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
