@@ -84,7 +84,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
               <input
                 type="text"
                 
-                className="form-control border-warning text-black border   rounded-xl"
+                className="form-control border-warning text-black border px-5  rounded-xl"
                 required
                 placeholder="Add title"
                 aria-label="With input"

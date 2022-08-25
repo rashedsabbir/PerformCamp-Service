@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import {faStar} from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toast } from 'react-toastify';
 
@@ -67,33 +67,36 @@ const updateleaderboard = {
     
     return (
         <div>
-            <h1 className='text-2xl text-center font-bold text-primary text-center py-8'>You have got {reviews.length} reviews from Managers</h1>
-
+            <h1 className='text-2xl font-bold text-primary text-center py-8'>You have {reviews.length} {reviews.length>1 ? 'reviews' : 'review'}  from Managers</h1>
+            <p className='text-rose-400 text-xl font-bold mx-6'><button className='btn btn-success rounded'>Update</button> your reviews to leaderboard to be the best employee of the month! </p>
+            <div className='grid lg:grid-cols-2  lg:mx-16 '>
+        
             
             <p onClick={handleUpdate} className='text-rose-400 text-xl font-bold text-center'><button className='btn btn-success rounded'>Update</button> your reviews to leaderboard to be the best employee of the month! </p>
             
             <div className='grid lg:grid-cols-2  lg:mx-16 '>
             {
-  reviews.map(review=>
-            <div key={review._id} class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
-            
-  
-  <div class="flex justify-center md:justify-end -mt-16">
-  
-    <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src={review.image}/>
-  </div>
-  <div>
-    <h2 class="text-gray-800 text-3xl font-semibold">Task: {review.title}</h2>
-    <p class="mt-2 text-gray-600">{review.description}</p>
-  </div>
-  
-  <div class="flex justify-between mt-4">
-  <p><span className='text-warning'>{starRating}</span> <span className='text-xl font-medium text-indigo-500'>{review.rating}/10</span></p>
-    <p class="text-xl font-medium text-indigo-500">{review.givenBy}</p>
-  </div>
-  
-</div>
-)}
+                reviews.map(review =>
+                    <div key={review._id} class="max-w-md py-4 px-8 mx-6 bg-white shadow-lg rounded-lg my-20">
+
+
+                        <div class="flex justify-center md:justify-end -mt-16">
+
+                            <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src={review.image} alt="" />
+                        </div>
+                        <div>
+                            <h2 class="text-gray-800 text-3xl font-semibold">Task: {review.title}</h2>
+                            <p class="mt-2 text-gray-600">{review.description}</p>
+                        </div>
+
+                        <div class="flex justify-between mt-4">
+                            <p><span className='text-warning'>{starRating}</span> <span className='text-xl font-medium text-indigo-500'>{review.rating}/5</span></p>
+                            <p class="text-xl font-medium text-indigo-500">{review.givenBy}</p>
+                        </div>
+
+                    </div>
+                )}
+        </div>
         </div>
         </div>
         

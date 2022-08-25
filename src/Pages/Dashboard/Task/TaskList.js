@@ -32,11 +32,15 @@ const TaskList = () => {
 
     return (
         <div>
-            <div className='mid-content  task-background border lg:m-12 text-black shadow-2xl rounded-lg'>
-                <h1 className='font-bold text-4xl text-center py-5'>Task list</h1>
-                <div className='grid lg:grid-cols-3 grid-cols-1 lg:mx-12 mx-6'>
+            <div class="xl:w-full border-b border-gray-300  py-5  ">
+                <div class="flex justify-center">
+                    <p class="text-2xl text-gray-800 font-bold ">Task List</p>
+                </div>
+            </div>
+            <div className='mid-content mt-10 task-background border lg:m-12 text-black shadow-2xl rounded-lg'>            
+                <div className='grid lg:grid-cols-3 grid-cols-1 lg:mx-12 gap-6 my-9 mx-6 '>
                     {tasks.map((task) => (
-                        <div class="relative bg-white py-6 px-6  rounded-3xl w-64 my-4 shadow-xl">
+                        <div class="relative bg-white py-6 px-6 my-2 rounded-3xl w-64 shadow-xl">
                             <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-pink-500 left-4 -top-6">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,7 +58,6 @@ const TaskList = () => {
                                 <div class="border-t-2"></div>
 
                                 <div class="flex  justify-center">
-
                                     <div class="my-2">
 
                                         <UpdateModal setIsReload={setIsReload} isReload={isReload} id={task?._id} />

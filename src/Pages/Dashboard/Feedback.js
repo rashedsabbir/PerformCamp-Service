@@ -24,7 +24,7 @@ const Feedback = () => {
         }
     }, [user]);
 
-    const handleConfirm = ({ task, link, setLink}) => {
+    const handleConfirm = ({ task, link, setLink }) => {
 
 
         console.log('inside user task', link);
@@ -71,7 +71,7 @@ const Feedback = () => {
                     toast.success(`task: ${task._id} is deleted`);
                     const remaining = feedbacks.filter(f => f._id !== task._id);
                     setFeedbacks(remaining);
-                    
+
                 }
 
             })
@@ -80,12 +80,21 @@ const Feedback = () => {
     }
     return (
         <div>
-         {
-            feedbacks.length === 0 ? 
-            <p className='text-blue-400 text-center text-xl my-3'>You have no feedbacks</p>
-            :
-            <h1 className='text-blue-400 text-center text-xl my-3'>You have {feedbacks.length} feedback...</h1>
-         }
+
+            {
+                feedbacks.length === 0 ?
+                    <div class="xl:w-full  py-5  ">
+                        <div class="flex justify-center">
+                            <p class="text-2xl text-teal-400 font-bold ">You Have No Feedback</p>
+                        </div>
+                    </div>
+                    :
+                    <div class="xl:w-full py-5  ">
+                        <div class="flex justify-center">
+                            <p class="text-2xl text-teal-400 font-bold ">You have {feedbacks.length} {feedbacks.length > 1 ? 'feedbacks' : 'feedback'}</p>
+                        </div>
+                    </div>
+            }
             <div className='grid grid-cols-1 lg:grid-cols-3 lg:mx-12'>
                 {
                     feedbacks.map(feedback => <div class="card w-96 bg-base-100 shadow-xl bg-gradient-to-r from-orange-100 to-slate-200">

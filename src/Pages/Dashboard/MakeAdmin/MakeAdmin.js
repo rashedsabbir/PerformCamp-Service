@@ -44,8 +44,12 @@ const MakeAdmin = () => {
   return (
     <div>
       <ToastContainer />
-
-      <div className="flex flex-col">
+      <div class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5  dark:bg-gray-800">
+        <div class="flex justify-center">
+          <p class="text-2xl text-gray-800 dark:text-gray-100 font-bold ">Add a New Manager</p>
+        </div>
+      </div>
+      <div className="flex flex-col mt-10">
         <div className=" overflow-x-auto ">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -54,66 +58,76 @@ const MakeAdmin = () => {
                   <tr>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider hidden lg:table-cell"
                     >
                       Name
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider hidden lg:table-cell"
                     >
-                      Title
+                      Email
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider hidden lg:table-cell"
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider hidden lg:table-cell"
                     >
                       Role
                     </th>
-                    <th scope="col" className="relative px-6 py-3">
-                      <span className="sr-only">Edit</span>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider hidden lg:table-cell"
+                    >
+                      Edit
                     </th>
+                    {/* <th scope="col" className="relative px-6 py-3  lg:table-cell">
+                      <span className="sr-only">Edit</span>
+                    </th> */}
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-white divide-y lg:divide-none divide-blue-400">
                   {userData.map((person) => (
-                    <tr key={person._id}>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center">
+                    <tr key={person._id} className='flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap'>
+                      <td className="px-6 py-4 whitespace-nowrap w-full lg:w-auto text-gray-800 text-center block lg:table-cell relative lg:static lg:border-none border-b border-1">
+                      <span class="lg:hidden absolute top-3 left-0 text-blue-400 px-4 py-1 text-md font-bold uppercase">Name</span>
+                        <div className="flex justify-end lg:justify-start items-center">
                           <div className="flex-shrink-0 h-10 w-10">
                             <img referrerPolicy="no-referrer" className="h-10 w-10 rounded-full" src={person.image} alt="" />
                           </div>
                           <div className="ml-4">
-                            <div className="text-sm font-medium text-gray-900">{person.name}</div>
+                            <div className="text-sm font-medium text-gray-900 ">{person.name}</div>
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900">{person.email}</div>
+                      <td className="px-6 py-4 whitespace-nowrap px-6 py-4 whitespace-nowrap w-full lg:w-auto text-gray-800 text-center block lg:table-cell relative lg:static lg:border-none border-b border-1">
+                      <span class="lg:hidden absolute top-3 left-0 text-blue-400 px-4 py-1 text-md font-bold uppercase">Email</span>
+                        <div className="text-sm text-gray-900 flex justify-end">{person.email}</div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap px-6 py-4 whitespace-nowrap w-full lg:w-auto text-gray-800 text-center block lg:table-cell relative lg:static lg:border-none border-b border-1">
+                      <span class="lg:hidden absolute top-3 left-0 text-blue-400 text-blue-400 px-4 py-1 text-md font-bold uppercase">Status</span>
+                        <div className='flex justify-end'>
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                           Active
                         </span>
+                        </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.role}</td>
-                      <td className="px-6 flex gap-4 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        {/* <select ref={roleChangeRef}  name="roleOption" id="select1">
-                          <option value="Admin">Admin</option>
-                          <option value="Manager">Manager</option>
-                          <option value="Employee">Employee</option>
-                        </select> */}
-
-
-                        <button className=" btn btn-outline btn-error rounded-2xl" onClick={() => handleEdit(person.email)}>
+                      <td className="px-6 py-4 whitespace-nowrap px-6 py-4 whitespace-nowrap w-full lg:w-auto text-gray-800 text-center block lg:table-cell relative lg:static lg:border-none border-b border-1">
+                      <span class="lg:hidden absolute top-3 left-0 text-blue-400 px-4 py-1 text-md font-bold uppercase">Role</span>
+                        <div className='flex justify-end'>{person.role}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap px-6 py-4 whitespace-nowrap w-full lg:w-auto text-gray-800 text-center  block lg:table-cell relative lg:static lg:border-none border-b border-1">
+                        <span class="lg:hidden absolute top-3 left-0 text-blue-400 px-4 py-1 text-md font-bold uppercase">Edit</span>
+                        <div className='flex justify-end w-full'>
+                        <button className=" btn btn-outline  btn-error rounded-2xl" onClick={() => handleEdit(person.email)}>
                           Make Manager
                         </button>
+                        </div>
 
                         {/* modal for edit  */}
 
