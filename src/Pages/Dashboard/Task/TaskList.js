@@ -4,14 +4,7 @@ import UpdateModal from './UpdateTask';
 
 const TaskList = () => {
 
-    const [userProfile, setUserProfile] = useState([])
-    useEffect(() => {
-
-        fetch(`http://localhost:5000/user`)
-
-            .then(res => res.json())
-            .then(data => setUserProfile(data))
-    }, [])
+    
 
     const [tasks, setTasks] = useState([]);
     const [isReload, setIsReload] = useState(false);
@@ -27,15 +20,15 @@ const TaskList = () => {
 
     return (
         <div>
-            <div class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5  dark:bg-gray-800">
+            <div class="xl:w-full border-b border-gray-300  py-5  ">
                 <div class="flex justify-center">
-                    <p class="text-2xl text-gray-800 dark:text-gray-100 font-bold ">Task List</p>
+                    <p class="text-2xl text-gray-800 font-bold ">Task List</p>
                 </div>
             </div>
             <div className='mid-content mt-10 task-background border lg:m-12 text-black shadow-2xl rounded-lg'>            
-                <div className='grid lg:grid-cols-3 grid-cols-1 lg:mx-12 gap-6 my-8 mx-6 '>
+                <div className='grid lg:grid-cols-3 grid-cols-1 lg:mx-12 gap-6 my-9 mx-6 '>
                     {tasks.map((task) => (
-                        <div class="relative bg-white py-6 px-6  rounded-3xl w-64 shadow-xl">
+                        <div class="relative bg-white py-6 px-6 my-2 rounded-3xl w-64 shadow-xl">
                             <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-pink-500 left-4 -top-6">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -49,30 +42,11 @@ const TaskList = () => {
 
                                     <p>{task?.description}</p>
                                 </div>
-                                <div class="flex space-x-2 text-gray-400 text-sm my-3">
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                    <p>1 Weeks Left</p>
-                                </div>
+                                
                                 <div class="border-t-2"></div>
 
-                                <div class="flex  justify-between">
-                                    <div class="my-2">
-                                        <p class="font-semibold text-base mb-2">Team Member</p>
-                                        <div className='grid grid-cols-3'>
-                                            {userProfile.map((user) => (
-
-                                                <div class="  space-x-2">
-                                                    <img src={user?.image} referrerpolicy="no-referrer"
-                                                        class="w-6 h-6  rounded-full" />
-
-                                                </div>
-
-                                            ))}
-                                        </div>
-                                    </div>
+                                <div class="flex  justify-center">
+                                    
                                     <div class="my-2">
 
                                         <UpdateModal setIsReload={setIsReload} isReload={isReload} id={task?._id} />

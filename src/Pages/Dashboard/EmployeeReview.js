@@ -28,15 +28,14 @@ const EmployeeReview = () => {
 
     return (
         <div>
-            <div class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5  dark:bg-gray-800">
-                <div class="flex justify-center">
-                    <p class="text-2xl text-gray-800 dark:text-gray-100 font-bold ">You have {reviews.length} {reviews.length > 1 ? 'reviews' : 'review'}  from Managers</p>
-                </div>
-            </div>
-
+            <h1 className='text-2xl font-bold text-primary text-center py-8'>You have {reviews.length} {reviews.length>1 ? 'reviews' : 'review'}  from Managers</h1>
+            <p className='text-rose-400 text-xl font-bold mx-6'><button className='btn btn-success rounded'>Update</button> your reviews to leaderboard to be the best employee of the month! </p>
+            <div className='grid lg:grid-cols-2  lg:mx-16 '>
+        
+            
             {
                 reviews.map(review =>
-                    <div key={review._id} class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+                    <div key={review._id} class="max-w-md py-4 px-8 mx-6 bg-white shadow-lg rounded-lg my-20">
 
 
                         <div class="flex justify-center md:justify-end -mt-16">
@@ -55,6 +54,7 @@ const EmployeeReview = () => {
 
                     </div>
                 )}
+        </div>
         </div>
         
     );

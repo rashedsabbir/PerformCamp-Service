@@ -83,15 +83,15 @@ const Feedback = () => {
 
             {
                 feedbacks.length === 0 ?
-                    <div class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5  dark:bg-gray-800">
+                    <div class="xl:w-full  py-5  ">
                         <div class="flex justify-center">
-                            <p class="text-2xl text-gray-800 dark:text-gray-100 font-bold ">You Have No Feedback</p>
+                            <p class="text-2xl text-teal-400 font-bold ">You Have No Feedback</p>
                         </div>
                     </div>
                     :
-                    <div class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5  dark:bg-gray-800">
+                    <div class="xl:w-full py-5  ">
                         <div class="flex justify-center">
-                            <p class="text-2xl text-gray-800 dark:text-gray-100 font-bold ">You have {feedbacks.length} {feedbacks.length > 1 ? 'feedbacks' : 'feedback'}</p>
+                            <p class="text-2xl text-teal-400 font-bold ">You have {feedbacks.length} {feedbacks.length > 1 ? 'feedbacks' : 'feedback'}</p>
                         </div>
                     </div>
             }

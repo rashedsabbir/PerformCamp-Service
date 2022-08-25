@@ -30,15 +30,16 @@ const UserTask = () => {
 
     const handleConfirm = ({ task, link, setLink }) => {
 
-        console.log('inside user task', link);
-        const pendingTask = {
-            title: task.title,
-            description: task.description,
-            appointee: task.appointee,
-            employeeName: task.employeeName,
-            email: task.email,
-            deadline: task.deadline,
-            proof: link
+    console.log('inside user task', link);
+    const pendingTask ={
+        title: task.title,
+        description: task.description,
+        appointee: task.appointee,
+        employeeName: task.employeeName,
+        employeeImage: user?.photoURL,
+        email: task.email,
+        deadline: task.deadline,
+        proof: link
 
         }
 
@@ -87,22 +88,22 @@ const UserTask = () => {
             <div>
                 {
                     tasks.length === 0 ? <>
-                        <div class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5  dark:bg-gray-800">
+                        <div class="  py-5  ">
                             <div class="flex justify-center">
-                                <p class="text-2xl text-gray-800 dark:text-gray-100 font-bold ">You Have No Task</p>
+                                <p class="text-2xl text-teal-400  font-bold ">You Have No Task</p>
                             </div>
                         </div>
                     </>
                         :
 
                         <>
-                            <div class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5  dark:bg-gray-800">
+                            <div class=" py-5  ">
                                 <div class="flex justify-center">
-                                    <p class="text-2xl text-gray-800 dark:text-gray-100 font-bold ">You have {tasks.length} {tasks.length > 1 ? 'tasks' : 'task'}</p>
+                                    <p class="text-2xl text-teal-400  font-bold ">You have {tasks.length} {tasks.length > 1 ? 'tasks' : 'task'}</p>
                                 </div>
                             </div>
                             <div>
-                                <div className="flex flex-col my-12">
+                                <div className="flex flex-col ">
                                     <div className=" overflow-x-auto ">
                                         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                                             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">

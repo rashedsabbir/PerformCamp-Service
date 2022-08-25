@@ -36,8 +36,9 @@ const ManagerReview = () => {
 
         console.log(data)
 
-        data.givenBy = user?.displayName
-        data.image = user?.photoURL
+        data.givenBy=user?.displayName
+        data.image=user?.photoURL
+        
         fetch(`http://localhost:5000/employeeReviews`, {
             method: "POST",
             headers: {
