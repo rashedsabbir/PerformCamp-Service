@@ -9,7 +9,7 @@ const FeedbackModal = ({review, handleFeedbackSubmit}) => {
         console.log(event.target.value);
     }
     return (
-        <div>
+        
               <div>
         <input type="checkbox" id="feedback-modal" className="modal-toggle" />
         <div className="modal modal-bottom sm:modal-middle">
@@ -24,7 +24,7 @@ const FeedbackModal = ({review, handleFeedbackSubmit}) => {
             </div>
         </div>
     </div>
-        </div>
+        
     );
 };
 
