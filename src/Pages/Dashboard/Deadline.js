@@ -40,9 +40,6 @@ function Deadline() {
 }, [user]);
 
 
-
- 
-
   return (
     <div className="maincontainer w-full 
     ">

@@ -98,7 +98,13 @@ const MakeAdmin = () => {
                       <span class="lg:hidden absolute top-3 left-0 text-blue-400 px-4 py-1 text-md font-bold uppercase">Name</span>
                         <div className="flex justify-end lg:justify-start items-center">
                           <div className="flex-shrink-0 h-10 w-10">
-                            <img referrerPolicy="no-referrer" className="h-10 w-10 rounded-full" src={person.image} alt="" />
+                            
+                            {
+                  person.image ? <img
+                  src={person.image}
+                  referrerPolicy="no-referrer" className="h-10 w-10 rounded-full" 
+                  alt="" /> : <img src="https://png.pngtree.com/png-vector/20190225/ourlarge/pngtree-vector-avatar-icon-png-image_702436.jpg" alt="" className="h-10 w-10 rounded-full" />
+                }
                           </div>
                           <div className="ml-4">
                             <div className="text-sm font-medium text-gray-900 ">{person.name}</div>

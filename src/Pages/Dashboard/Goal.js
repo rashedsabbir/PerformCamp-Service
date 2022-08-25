@@ -116,7 +116,7 @@ const Goal = () => {
   </div>
 </div>
 
-<div class="min-h-screen py-20 px-10 ">
+<div class=" py-10 px-10 ">
   <div class="grid grid-cols-1 gap-20 lg:grid-cols-2  lg:gap-10">
     <h2 className='text-center lg:text-3xl text-xl font-bold text-teal-500'>Task Progress</h2>
     <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20"

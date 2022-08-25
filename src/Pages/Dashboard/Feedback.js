@@ -83,7 +83,7 @@ const Feedback = () => {
 
             {
                 feedbacks.length === 0 ?
-                    <div class="xl:w-full  py-5  ">
+                    <div class="xl:w-full  py-2  ">
                         <div class="flex justify-center">
                             <p class="text-2xl text-teal-400 font-bold ">You Have No Feedback</p>
                         </div>

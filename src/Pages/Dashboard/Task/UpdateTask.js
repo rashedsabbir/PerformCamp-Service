@@ -3,6 +3,7 @@ import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import Modal from "react-modal";
+import { toast } from 'react-toastify';
 
 const customStyles = {
     content: {
@@ -53,7 +54,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
       .then((res) => res.json())
       .then((data) => {
         setIsReload(!isReload);
-        // console.log(data);
+        toast.success('posted successfully');
       }
       )
       

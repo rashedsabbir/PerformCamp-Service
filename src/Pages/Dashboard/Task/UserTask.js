@@ -110,72 +110,72 @@ const UserTask = () => {
                                                 <table className="min-w-full text-center divide-y divide-gray-200">
                                                     <thead className="bg-gray-50 font-bold">
                                                         <tr>
-                                                            <th
-                                                                scope="col"
-                                                                className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                                            >
-                                                                Serial
-                                                            </th>
-                                                            <th
-                                                                scope="col"
-                                                                className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                                            >
-                                                                Title
-                                                            </th>
-                                                            <th
-                                                                scope="col"
-                                                                className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                                            >
-                                                                Deadline
-                                                            </th>
-                                                            <th
-                                                                scope="col"
-                                                                className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                                            >
-                                                                Appointee
-                                                            </th>
-                                                            <th
-                                                                scope="col"
-                                                                className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                                            >
+<th
+    scope="col"
+    className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+>
+    Serial
+</th>
+<th
+    scope="col"
+    className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+>
+    Title
+</th>
+<th
+    scope="col"
+    className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+>
+    Deadline
+</th>
+<th
+    scope="col"
+    className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+>
+    Appointee
+</th>
+<th
+    scope="col"
+    className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+>
 
-                                                            </th>
+</th>
 
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody className="bg-white divide-y divide-gray-200">
-                                                        {
-                                                            tasks.map((task, index) => {
-                                                                return (
-                                                                    <tr key={task._id}>
-                                                                        <td className="px-6 py-4 whitespace-nowrap">{index + 1}
-                                                                        </td>
-                                                                        <td className="px-6 py-4 whitespace-nowrap">
-                                                                            <div className="">
-                                                                                {task.title}
-                                                                            </div>
-                                                                        </td>
-                                                                        <td className="px-6 py-4 whitespace-nowrap">
-                                                                            <div className="text-sm text-gray-900">{task.deadline}</div>
-                                                                        </td>
-                                                                        <td className="px-6 py-4 whitespace-nowrap">
-                                                                            <div className="text-sm text-gray-900">{task?.appointee}</div>
-                                                                        </td>
+</tr>
+</thead>
+<tbody className="bg-white divide-y divide-gray-200">
+{
+tasks.map((task, index) => {
+    return (
+        <tr key={task._id}>
+            <td className="px-6 py-4 whitespace-nowrap">{index + 1}
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap">
+                <div className="">
+                    {task.title}
+                </div>
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap">
+                <div className="text-sm text-gray-900">{task.deadline}</div>
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap">
+                <div className="text-sm text-gray-900">{task?.appointee}</div>
+            </td>
 
-                                                                        <td className="px-6 flex gap-4 py-4 whitespace-nowrap text-right text-sm font-medium">
+            <td className="px-6 flex gap-4 py-4 whitespace-nowrap text-right text-sm font-medium">
 
-                                                                            <div className='lg:ml-12'>
+                <div className='lg:ml-12'>
 
-                                                                                <label onClick={() => setDetailsTask(task)} for="details-task-modal" className="btn btn-primary rounded-xl mx-4 text-white">Details</label>
+                    <label onClick={() => setDetailsTask(task)} for="details-task-modal" className="btn btn-primary rounded-xl mx-4 text-white">Details</label>
 
-                                                                                <label onClick={() => setCompleteTask(task)} for="complete-task-modal" className="btn btn-outline btn-error rounded-2xl">Complete</label>
+                    <label onClick={() => setCompleteTask(task)} for="complete-task-modal" className="btn btn-outline btn-error rounded-2xl">Complete</label>
 
-                                                                            </div>
+                </div>
 
-                                                                        </td>
-                                                                    </tr>
-                                                                )
-                                                            }
+            </td>
+        </tr>
+    )
+}
 
                                                             )}
                                                     </tbody>

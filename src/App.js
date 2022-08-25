@@ -20,6 +20,7 @@ import RequireAuth from './Pages/Dashboard/RequireAuth/RequireAuth';
 import NotFound from './Pages/NotFound/NotFound';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import TaskList from './Pages/Dashboard/Task/TaskList';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
           <Route path="add-task" element={<RequireManager><AddTask /></RequireManager>}></Route>
           <Route path="add-employee" element={<RequireManager><AddEmployee /></RequireManager>}></Route>
           <Route path="makeManager" element={<RequireManager><MakeAdmin /></RequireManager>}></Route>
-          <Route path="taskList" element={<RequireManager><Tasks /></RequireManager>}></Route>
+          <Route path="taskList" element={<RequireManager><TaskList /></RequireManager>}></Route>
           <Route path="managerReview" element={<RequireManager><ManagerReview /></RequireManager>}></Route>
 
           <Route path="user-task" element={<RequireAuth><UserTask /></RequireAuth>}></Route>

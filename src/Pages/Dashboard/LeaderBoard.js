@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const LeaderBoard = () => {
     const [leaderboard, setLeaderboard] = useState([]);
     const [user] = useAuthState(auth);
 
-    const starRating = <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+    
 
     useEffect(() => {
         if (user) {
@@ -29,7 +28,7 @@ const LeaderBoard = () => {
     leaderboard.sort((a, b) => b.ratings - a.ratings);
 
     return (
-        <div>
+        <div className='h-10/12 w-10/12 '>
             <h1 className='text-3xl font-bold text-primary text-center py-8'>LeaderBoard</h1>
 
             <table class="border-collapse w-full">

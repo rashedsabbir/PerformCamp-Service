@@ -68,9 +68,6 @@ const updateleaderboard = {
     return (
         <div>
             <h1 className='text-2xl font-bold text-primary text-center py-8'>You have {reviews.length} {reviews.length>1 ? 'reviews' : 'review'}  from Managers</h1>
-            <p className='text-rose-400 text-xl font-bold mx-6'><button className='btn btn-success rounded'>Update</button> your reviews to leaderboard to be the best employee of the month! </p>
-            <div className='grid lg:grid-cols-2  lg:mx-16 '>
-        
             
             <p onClick={handleUpdate} className='text-rose-400 text-xl font-bold text-center'><button className='btn btn-success rounded'>Update</button> your reviews to leaderboard to be the best employee of the month! </p>
             
@@ -78,7 +75,6 @@ const updateleaderboard = {
             {
                 reviews.map(review =>
                     <div key={review._id} class="max-w-md py-4 px-8 mx-6 bg-white shadow-lg rounded-lg my-20">
-
 
                         <div class="flex justify-center md:justify-end -mt-16">
 
@@ -98,7 +94,7 @@ const updateleaderboard = {
                 )}
         </div>
         </div>
-        </div>
+        
         
     );
 };
