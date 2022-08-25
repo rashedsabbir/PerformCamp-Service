@@ -15,18 +15,17 @@ import auth from '../../firebase.init';
 
 
 const ClientDashboard = () => {
-    
+
     const [user] = useAuthState(auth);
     const [manager] = useManager(user);
 
     return (
         <div className="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col items-center bg-base-200">
+            <div className="drawer-content flex flex-col items-center bg-base-50">
                 <Navbar></Navbar>
                 {/* <!-- Page content here --> */}
                 <Outlet></Outlet>
-                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open Dashboard</label>
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
@@ -36,15 +35,21 @@ const ClientDashboard = () => {
                     <div className="flex flex-col gap-x-4 items-center">
 
                         <img
-                            src={logo}
-                            className={`cursor-pointer duration-500 "rotate-[360deg]"
-            }`}
+                            src={user.photoURL}
+                            className="h-32 w-32 rounded-full "
                             alt="" />
+
+                        <div>
+                            {
+                                manager ? <p className='text-white font-semibold'>Manager</p> : <p className='text-white font-semibold'>Employee</p>
+                            }
+                        </div>
+
                         <h1
                             className={`text-white origin-left font-medium text-xl duration-200 "scale-0"
             }`}
                         >
-                            Designer
+                            {user.displayName}
                         </h1>
                     </div>
                     <ul>
