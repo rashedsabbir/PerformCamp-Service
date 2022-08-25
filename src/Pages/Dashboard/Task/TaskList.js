@@ -26,10 +26,10 @@ const TaskList = () => {
 
 
     return (
-        <div>
-        <div className='mid-content  task-background border lg:m-12 text-black shadow-2xl rounded-lg'>
+        
+        <div className='mid-content w-full task-background border  text-black shadow-2xl rounded-lg'>
             <h1 className='font-bold text-4xl text-center py-5'>Task list</h1>
-            <div className='grid lg:grid-cols-3 grid-cols-1 lg:mx-12 mx-6'>
+            <div className='grid lg:grid-cols-3 grid-cols-1 place-items-center lg:mx-12 mx-6'>
             {tasks.map((task) => (
                 <div class="relative bg-white py-6 px-6  rounded-3xl w-64 my-4 shadow-xl">
                 <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-pink-500 left-4 -top-6">
@@ -81,7 +81,7 @@ const TaskList = () => {
             </div>
                 </div>
                 
-        </div>
+        
     );
 };
 
