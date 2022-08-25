@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 import './TaskList.css'
 import UpdateModal from './UpdateTask';
 
 const TaskList = () => {
-
-    
-
     const [tasks, setTasks] = useState([]);
     const [isReload, setIsReload] = useState(false);
+    const [user] = useAuthState(auth);
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/task")
-            .then((res) => res.json())
-            .then((data) => setTasks(data));
-    }, [isReload]);
+
+        if(user){
+            fetch(`http://localhost:5000/managerTask/${user?.email}`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log('manger task', data);
+                setTasks(data)
+            })
+        }
+
+    }, [user]);
 
 
 
@@ -46,7 +58,6 @@ const TaskList = () => {
                                 <div class="border-t-2"></div>
 
                                 <div class="flex  justify-center">
-                                    
                                     <div class="my-2">
 
                                         <UpdateModal setIsReload={setIsReload} isReload={isReload} id={task?._id} />

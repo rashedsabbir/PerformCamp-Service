@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import ManagerReviewModal from './ManagerReviewModal';
 import ReviewDetailModal from './ReviewDetailModal';
 import { toast } from 'react-toastify';
 import FeedbackModal from './FeedbackModal';
-
-
+import ManagerReviewModal from './ManagerReviewModal';
 
 
 const ManagerReview = () => {
@@ -32,48 +30,64 @@ const ManagerReview = () => {
         }
     }, [user]);
 
-    const onSubmit = data => {
+    const handleReviewSubmit = ({ review, comment, rating }) => {
+        console.log('manager', review);
+        const employeeReview = {
+            title: review.title,
+            description: review.description,
+            email: review.email,
+            employeeImage: review.employeeImage,
+            appointeeEmail: user?.email,
+            givenBy: user?.displayName,
+            image: user?.photoURL,
+            deadline: review.deadline,
+            comment: comment,
+            rating: rating
 
-        console.log(data)
+        }
 
-        data.givenBy=user?.displayName
-        data.image=user?.photoURL
-        
-        fetch(`http://localhost:5000/employeeReviews`, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(data)
+        if (rating >= 1 && rating <= 5) {
+            fetch(`http://localhost:5000/employeeReviews`, {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(employeeReview)
 
-        })
-            .then(res => res.json())
-            .then(data => {
+            })
+                .then(res => res.json())
+                .then(data => {
 
-                console.log(data)
-                if (data.acknowledged === true) {
-                    toast("Review Has been submit Successfully!")
+                    console.log(data)
+                    if (data.acknowledged === true) {
+                        toast("Review Has been submit Successfully!")
+                        console.log(data);
+                    }
+
+                })
+
+            fetch(`http://localhost:5000/pendingReview/${review._id}`, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
                     console.log(data);
-                }
+                    if (data.deletedCount) {
+                        toast.success(`review: ${review.id} is deleted`);
 
-            })
+                    }
+                })
+        }
 
-        fetch(`http://localhost:5000/pendingReview/${data.id}`, {
-            method: 'DELETE',
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount) {
-                    toast.success(`review: ${data.id} is deleted`);
+        else {
+            toast.error('Give rating between 1 to 5')
+        }
 
-                }
-            })
-        window.location.reload()
     };
+
 
 
     const handleFeedbackSubmit = ({ review, comment }) => {
@@ -119,8 +133,6 @@ const ManagerReview = () => {
                 console.log(data);
                 if (data.deletedCount) {
 
-
-
                     toast.success(`review: ${review._id} is deleted`);
                     const remaining = reviews.filter(r => r._id !== review._id);
                     setReviews(remaining);
@@ -148,6 +160,7 @@ const ManagerReview = () => {
                     </tr>
                 </thead>
 
+
                 <tbody>
                     {
                         reviews.map(review => (
@@ -169,7 +182,8 @@ const ManagerReview = () => {
                                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
                                     <label onClick={() => setDetailsReview(review)} for="details-review-modal" className="btn text-stone-100 btn-sm border-none bg-secondary rounded-md p-1 hover:text-yellow-100 mr-2">Details</label>
 
-                                    <label onClick={() => setEmployeeReview(review)} for="details-manager-review-modal" className="btn text-stone-100 btn-sm border-none bg-success rounded-md p-1 hover:text-yellow-100 mr-2">Review</label>
+
+                                    <label onClick={() => setEmployeeReview(review)} for="manager-review-modal" className="btn text-stone-100 btn-sm border-none bg-success rounded-md p-1 hover:text-yellow-100 mr-2">Review</label>
 
 
 
@@ -189,19 +203,20 @@ const ManagerReview = () => {
             {
                 employeeReview && <ManagerReviewModal
                     review={employeeReview}
+                    handleReviewSubmit={handleReviewSubmit}
 
-                    onSubmit={onSubmit}>
+                >
                 </ManagerReviewModal>}
 
 
-            {
-                feedback && <FeedbackModal
-                    review={feedback}
-                    handleFeedbackSubmit={handleFeedbackSubmit}>
-                </FeedbackModal>
-            }
+{
+    feedback && <FeedbackModal
+        review={feedback}
+        handleFeedbackSubmit={handleFeedbackSubmit}>
+    </FeedbackModal>
+}
 
-        </div>
+        </div >
     );
 };
 

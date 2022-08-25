@@ -1,40 +1,38 @@
-import React from 'react';
-import { useForm } from "react-hook-form";
+import React, { useState } from 'react';
 
 
-const ManagerReviewModal = ({ onSubmit, review}) => {
-    const { register, handleSubmit, reset } = useForm();
-    
+const ManagerReviewModal = ({handleReviewSubmit, review}) => {
+    const [comment, setComment] = useState('');
+    const [rating, setRating] = useState('');
 
+
+    const handleCommentBlur = event => {
+        setComment(event.target.value);
+        console.log(event.target.value);
+    }
+    const handleRatingBlur = event => {
+        setRating(event.target.value);
+        console.log(event.target.value);
+    }
     return (
-        <div className=''>
-            <form className=" lg:p-20 p-10 flex flex-col space-y-4 justify-center" id='details-manager-review-modal' onSubmit={handleSubmit(onSubmit)}>
-    
-    <textarea rows="1" cols="30" className=" border-2 p-2 mr-2 border-blue-900 rounded-md" value={review._id} {...register("id", { required: true, maxLength: 50 })} />
+        
+        <div>
+  <input type="checkbox" id="manager-review-modal" className="modal-toggle" />
+  <div className="modal modal-bottom sm:modal-middle">
+      <div className="modal-box">
+          <p className='text-lg text-orange-400'>Share your experience with this employee!</p>
+          <textarea onBlur={handleCommentBlur} class="form-control textarea textarea-info w-full rounded-2xl max-w-xs my-2" cols="25" rows="2" placeholder="Description" name='description' required></textarea>
+          <input onBlur={handleRatingBlur} type="number" step="0.01"  min="1" max="5" className="input input-bordered input-accent w-full max-w-xs mt-1" placeholder="rating out of 5" />
+          <div className="modal-action">
+              <label for="manager-review-modal" className="btn btn-xs btn-outline btn-error">Cancel</label>
+              <button onClick={() => handleReviewSubmit({review, comment,  rating})
+              }  className="btn btn-outline btn-success btn-xs text-white" >Submit</button>
+          </div>
+      </div>
+  </div>
+</div>
 
-    <textarea rows="1" cols="30" className=" border-2 p-2 mr-2 border-blue-900 rounded-md" value={review.employeeName} {...register("employeeName", { required: true, maxLength: 50 })} />
-
-    <textarea rows="1" cols="45" className=" border-2 p-2 mr-2 border-blue-900 rounded-md" value={review.employeeImage} {...register("employeeImage")} />
-
-    <textarea rows="1" cols="30" className=" border-2 p-2 mr-2 border-blue-900 rounded-md" value={review.email} {...register("email", { required: true, maxLength: 50 })} />
-
-    <textarea rows="1" cols="20" className="border-2 p-2  border-blue-900 rounded-md" value={review.title} {...register("title", { required: true, maxLength: 50 })} />
-
-    <textarea rows="2" cols="45" className="border-2 p-2 text-center  mx-auto border-blue-900 rounded-md" placeholder="Share your experience with this employee" {...register("description")} />
-
-
-    <input rows="1" cols="10" className="border-2 p-2 text-center mx-auto border-blue-900 rounded-md" placeholder="Rating out of 5" {...register("rating")} />
-    
-
-  
-  <input for="details-manager-review-modal" className="btn btn-error mx-auto text-white hover:btn-blue-900  cursor-pointer  rounded-lg" type="submit"></input>
-  
-  
-
-
-</form>
-        </div>
-    );
+);
 };
 
 export default ManagerReviewModal;
