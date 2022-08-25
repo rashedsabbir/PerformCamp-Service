@@ -18,6 +18,9 @@ import Login from './Pages/Login/Login';
 import SignUp from './Pages/Signup/SignUp';
 import RequireAuth from './Pages/Dashboard/RequireAuth/RequireAuth';
 import NotFound from './Pages/NotFound/NotFound';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
@@ -48,6 +51,7 @@ function App() {
         </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
