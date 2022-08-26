@@ -16,7 +16,7 @@ const Goal = () => {
   //get tasks by email
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/task/${user?.email}`, {
+            fetch(`https://whispering-gorge-29329.herokuapp.com/task/${user?.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -33,7 +33,7 @@ const Goal = () => {
     //get review by email
     useEffect(() => {
       if (user) {
-          fetch(`http://localhost:5000/employeeReviews/${user?.email}`, {
+          fetch(`https://whispering-gorge-29329.herokuapp.com/employeeReviews/${user?.email}`, {
               method: 'GET',
               headers: {
                   'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -50,7 +50,7 @@ const Goal = () => {
   //get feedback by email
   useEffect(() => {
     if (user) {
-        fetch(`http://localhost:5000/feedback/${user?.email}`, {
+        fetch(`https://whispering-gorge-29329.herokuapp.com/feedback/${user?.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

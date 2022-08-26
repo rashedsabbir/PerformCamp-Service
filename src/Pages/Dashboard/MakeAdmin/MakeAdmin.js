@@ -7,7 +7,7 @@ const MakeAdmin = () => {
 
   const roleChangeRef = useRef()
   useEffect(() => {
-    fetch('http://localhost:5000/user')
+    fetch('https://whispering-gorge-29329.herokuapp.com/user')
       .then(res => res.json())
       .then(data => setUserData(data))
   }, [userData])
@@ -19,7 +19,7 @@ const MakeAdmin = () => {
     //   // document.querySelector('.output').textContent = output;
     //   console.log(output);
 
-    fetch(`http://localhost:5000/user_admin/${email}`, {
+    fetch(`https://whispering-gorge-29329.herokuapp.com/user_admin/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

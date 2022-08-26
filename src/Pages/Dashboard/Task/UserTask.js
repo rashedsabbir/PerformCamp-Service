@@ -14,7 +14,7 @@ const UserTask = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/task/${user?.email}`, {
+            fetch(`https://whispering-gorge-29329.herokuapp.com/task/${user?.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -43,7 +43,7 @@ const UserTask = () => {
 
         }
 
-        fetch('http://localhost:5000/pendingReview', {
+        fetch('https://whispering-gorge-29329.herokuapp.com/pendingReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -60,7 +60,7 @@ const UserTask = () => {
 
             })
 
-        fetch(`http://localhost:5000/task/${task._id}`, {
+        fetch(`https://whispering-gorge-29329.herokuapp.com/task/${task._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

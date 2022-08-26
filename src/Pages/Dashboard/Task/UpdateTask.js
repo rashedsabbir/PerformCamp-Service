@@ -43,7 +43,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
     const title = event.target.title.value;
     const description = event.target.description.value;
 
-    fetch(`http://localhost:5000/task/${id}`, {
+    fetch(`https://whispering-gorge-29329.herokuapp.com/task/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

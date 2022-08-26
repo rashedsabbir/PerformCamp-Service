@@ -16,7 +16,7 @@ const ManagerReview = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/pendingReview/${user?.email}`, {
+            fetch(`https://whispering-gorge-29329.herokuapp.com/pendingReview/${user?.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -47,7 +47,7 @@ const ManagerReview = () => {
         }
 
         if (rating >= 1 && rating <= 5) {
-            fetch(`http://localhost:5000/employeeReviews`, {
+            fetch(`https://whispering-gorge-29329.herokuapp.com/employeeReviews`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -66,7 +66,7 @@ const ManagerReview = () => {
 
                 })
 
-            fetch(`http://localhost:5000/pendingReview/${review._id}`, {
+            fetch(`https://whispering-gorge-29329.herokuapp.com/pendingReview/${review._id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -105,7 +105,7 @@ const ManagerReview = () => {
 
         }
 
-        fetch('http://localhost:5000/feedback', {
+        fetch('https://whispering-gorge-29329.herokuapp.com/feedback', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -122,7 +122,7 @@ const ManagerReview = () => {
 
             })
 
-        fetch(`http://localhost:5000/pendingReview/${review._id}`, {
+        fetch(`https://whispering-gorge-29329.herokuapp.com/pendingReview/${review._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
