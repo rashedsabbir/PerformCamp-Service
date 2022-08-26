@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import Clock from './Clock/Clock';
+
 
 
 
@@ -16,7 +16,7 @@ const Goal = () => {
   //get tasks by email
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/task/${user?.email}`, {
+            fetch(`https://whispering-gorge-29329.herokuapp.com/task/${user?.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -33,7 +33,7 @@ const Goal = () => {
     //get review by email
     useEffect(() => {
       if (user) {
-          fetch(`http://localhost:5000/employeeReviews/${user?.email}`, {
+          fetch(`https://whispering-gorge-29329.herokuapp.com/employeeReviews/${user?.email}`, {
               method: 'GET',
               headers: {
                   'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -50,7 +50,7 @@ const Goal = () => {
   //get feedback by email
   useEffect(() => {
     if (user) {
-        fetch(`http://localhost:5000/feedback/${user?.email}`, {
+        fetch(`https://whispering-gorge-29329.herokuapp.com/feedback/${user?.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -116,7 +116,7 @@ const Goal = () => {
   </div>
 </div>
 
-<div class="min-h-screen py-20 px-10 ">
+<div class=" py-10 px-10 ">
   <div class="grid grid-cols-1 gap-20 lg:grid-cols-2  lg:gap-10">
     <h2 className='text-center lg:text-3xl text-xl font-bold text-teal-500'>Task Progress</h2>
     <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20"

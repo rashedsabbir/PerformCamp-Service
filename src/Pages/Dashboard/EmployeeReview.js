@@ -4,17 +4,18 @@ import auth from '../../firebase.init';
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toast } from 'react-toastify';
+import Rating from 'react-rating';
 
 
 const EmployeeReview = () => {
 
     const [reviews, setReviews] = useState([]);
-    const starRating = <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+    
     const [user] = useAuthState(auth);
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/employeeReviews/${user?.email}`, {
+            fetch(`https://whispering-gorge-29329.herokuapp.com/employeeReviews/${user?.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -50,7 +51,7 @@ const updateleaderboard = {
     ratings: ratings
 }
     
-    fetch(`http://localhost:5000/leaderboard/${user?.email}`, {
+    fetch(`https://whispering-gorge-29329.herokuapp.com/leaderboard/${user?.email}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -68,17 +69,13 @@ const updateleaderboard = {
     return (
         <div>
             <h1 className='text-2xl font-bold text-primary text-center py-8'>You have {reviews.length} {reviews.length>1 ? 'reviews' : 'review'}  from Managers</h1>
-            <p className='text-rose-400 text-xl font-bold mx-6'><button className='btn btn-success rounded'>Update</button> your reviews to leaderboard to be the best employee of the month! </p>
-            <div className='grid lg:grid-cols-2  lg:mx-16 '>
-        
             
-            <p onClick={handleUpdate} className='text-rose-400 text-xl font-bold text-center'><button className='btn btn-success rounded'>Update</button> your reviews to leaderboard to be the best employee of the month! </p>
+            <p onClick={handleUpdate} className='text-rose-400 text-xl font-bold text-center'>Participate in the ''Best Employee of The Month'' Contest! <button className='btn btn-success rounded'>Participate</button></p>
             
             <div className='grid lg:grid-cols-2  lg:mx-16 '>
             {
                 reviews.map(review =>
                     <div key={review._id} class="max-w-md py-4 px-8 mx-6 bg-white shadow-lg rounded-lg my-20">
-
 
                         <div class="flex justify-center md:justify-end -mt-16">
 
@@ -90,15 +87,22 @@ const updateleaderboard = {
                         </div>
 
                         <div class="flex justify-between mt-4">
-                            <p><span className='text-warning'>{starRating}</span> <span className='text-xl font-medium text-indigo-500'>{review.rating}/5</span></p>
-                            <p class="text-xl font-medium text-indigo-500">{review.givenBy}</p>
-                        </div>
+                            <div className='mr-2 lg: mr-8'>
+                            <Rating
+                                    initialRating={review.rating}
+                                    emptySymbol={<FontAwesomeIcon icon={faStar} />}
+                                    fullSymbol={<FontAwesomeIcon style={{ color: 'gold' }} icon={faStar} />}
+                                    readonly
+                                ></Rating> <span className='text-md font-medium text-indigo-500'>({review.rating}/5)</span>
+                            </div>
+                                <p class="text-xl font-medium text-indigo-500">{review.givenBy}</p>
+                            </div>
 
                     </div>
                 )}
         </div>
         </div>
-        </div>
+        
         
     );
 };
