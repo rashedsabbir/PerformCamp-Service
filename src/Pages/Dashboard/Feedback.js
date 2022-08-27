@@ -11,7 +11,7 @@ const Feedback = () => {
     const [user] = useAuthState(auth);
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/feedback/${user?.email}`, {
+            fetch(`https://whispering-gorge-29329.herokuapp.com/feedback/${user?.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -40,7 +40,7 @@ const Feedback = () => {
 
         }
 
-        fetch('http://localhost:5000/pendingReview', {
+        fetch('https://whispering-gorge-29329.herokuapp.com/pendingReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -58,7 +58,7 @@ const Feedback = () => {
 
             })
 
-        fetch(`http://localhost:5000/feedback/${task._id}`, {
+        fetch(`https://whispering-gorge-29329.herokuapp.com/feedback/${task._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -83,7 +83,7 @@ const Feedback = () => {
 
             {
                 feedbacks.length === 0 ?
-                    <div class="xl:w-full  py-5  ">
+                    <div class="xl:w-full  py-2  ">
                         <div class="flex justify-center">
                             <p class="text-2xl text-teal-400 font-bold ">You Have No Feedback</p>
                         </div>

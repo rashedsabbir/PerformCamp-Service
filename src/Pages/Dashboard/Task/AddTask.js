@@ -13,12 +13,11 @@ import "react-datepicker/dist/react-datepicker.css";
 const AddTask = () => {
     const [user] = useAuthState(auth);
     const { handleSubmit, register, formState: { errors }, reset, control } = useForm();
-    const [date, setDate] = useState(new Date())
     const onSubmit = data => {
 
         console.log(data)
 
-        fetch('http://localhost:5000/task', {
+        fetch('https://whispering-gorge-29329.herokuapp.com/task', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -74,9 +73,6 @@ const AddTask = () => {
 
                             <div class="mx-auto pt-4">
                                 <div class="container mx-auto w-64">
-
-
-
                                     <div class=" flex flex-col items-center mb-6">
                                         <label class="label">
                                             <span class="label-text font-bold">Receiver</span>
@@ -84,36 +80,31 @@ const AddTask = () => {
                                         <input {...register("employeeName", { required: "Employee Name Address is required" })} class="input border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 mb-2 px-4 bg-amber-200 text-gray-700 placeholder-gray-500 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder='Employee Name' />
                                         <input {...register("email", { required: "Email Address is required" })} class="input border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-amber-200 text-gray-700 placeholder-gray-500 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder='Email' />
                                         <p className='text-red-500'>{errors.email?.message}</p>
-
                                     </div>
-
                                 </div>
                                 <div class="flex justify-center">
                                     <div class="mb-3 xl:w-96" data-mdb-toggle-button="false">
                                         <label class="label flex justify-center">
                                             <span class="label-text font-bold">Select a Deadline From Calendar</span>
                                         </label>
-                                        
-                                       <span className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-amber-200 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none ">
-                                       <Controller 
-                                            control={control}
-                                            name="deadline"
-                                            render={({ field }) => (
-                                                <DatePicker
-                                                    placeholderText="Select date"
-                                                    onChange={(date) => field.onChange(date)}
-                                                    selected={field.value}
 
-                                                />
-                                            )}
-                                        />
-                                       </span>                                       
+                                        <span className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-amber-200 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none ">
+                                            <Controller
+                                                control={control}
+                                                name="deadline"
+                                                render={({ field }) => (
+                                                    <DatePicker
+                                                        placeholderText="Select date"
+                                                        onChange={(date) => field.onChange(date)}
+                                                        selected={field.value}
+
+                                                    />
+                                                )}
+                                            />
+                                        </span>
                                     </div>
                                 </div>
-
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -131,28 +122,23 @@ const AddTask = () => {
                     </div>
                     <div class="container flex justify-center items-center mx-auto pb-6">
                         <div class=" pb-4 border-r border-gray-300 dark:border-gray-700 px-8 text-gray-800 ">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" />
-            <rect x="3" y="5" width="18" height="14" rx="2" />
-            <polyline points="3 7 12 13 21 7" />
-        </svg>
-        <p class="text-sm font-bold  text-gray-800 ">Via Email</p>
-    </div>
-    <div class="px-8">
-        <div class="flex justify-between items-center mb-8 mt-4">
-            <div class="w-9/12">
-                <div className='border-b border-gray-300'>
-                    <p class="text-sm  text-gray-800  pb-1">Email notification</p>
-                </div>
-                <p id="cb1" class="text-sm pt-2 text-gray-600 ">Send Email notification of this task to the employee</p>
-            </div>
-                              
-
-                            </div>
-
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" />
+                                <rect x="3" y="5" width="18" height="14" rx="2" />
+                                <polyline points="3 7 12 13 21 7" />
+                            </svg>
+                            <p class="text-sm font-bold  text-gray-800 ">Via Email</p>
                         </div>
-
-
+                        <div class="px-8">
+                            <div class="flex justify-between items-center mb-8 mt-4">
+                                <div class="w-9/12">
+                                    <div className='border-b border-gray-300'>
+                                        <p class="text-sm  text-gray-800  pb-1">Email notification</p>
+                                    </div>
+                                    <p id="cb1" class="text-sm pt-2 text-gray-600 ">Send Email notification of this task to the employee</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="container mx-auto w-11/12 xl:w-full">

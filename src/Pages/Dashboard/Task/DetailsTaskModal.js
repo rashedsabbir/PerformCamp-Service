@@ -10,7 +10,7 @@ const DetailsTaskModal = ({task}) => {
                 <h3 className="font-bold text-lg text-purple-400">{task.title}</h3>
                 <p className='text-md'>{task.description}</p>
                 <p><span className='text-blue-400'>Appointee:</span> {task?.appointee}</p>
-                <p><span className='text-blue-400'>Deadline: </span></p>
+                <p><span className='text-blue-400'>Deadline: {task?.deadline}</span></p>
                 <div className="modal-action">
                     <label for="details-task-modal" className="btn btn-xs btn-outline btn-error">Cancel</label>
                 </div>
