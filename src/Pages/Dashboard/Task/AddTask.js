@@ -16,33 +16,25 @@ const AddTask = () => {
     const [date, setDate] = useState(new Date())
     const onSubmit = data => {
 
-        // const task = {
-        //     title: event?.target?.title?.value,
-        //     description: event?.target?.description?.value,
-        //     email: event?.target?.email?.value,
-        //     appointee: user?.email,
-        //     deadline: '',
-
-        // }
         console.log(data)
 
-        // fetch('http://localhost:5000/task', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json',
+        fetch('http://localhost:5000/task', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
 
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
 
-        //         if (data.acknowledged === true) {
-        //             toast("Task Has been submit Successfully!")
-        //             reset();
-        //         }
+                if (data.acknowledged === true) {
+                    toast("Task Has been submit Successfully!")
+                    reset();
+                }
 
-        //     })
+            })
 
     };
 
@@ -167,7 +159,6 @@ const AddTask = () => {
                     <div class="w-full py-4 pb-10 sm:px-0  flex justify-center">
                         <button role="button" aria-label="cancel form" class="bg-error focus:outline-none transition duration-150 ease-in-out hover:bg-gray-400  rounded text-gray-100 px-6 py-2 text-xs mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700">Cancel</button>
                         <button role="button" aria-label="Save form" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-green-400 focus:outline-none transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 mr-4 py-2 text-sm" type="submit">Save</button>
-                        {/* <button role="button" aria-label="reset form" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-rose-500 focus:outline-none transition duration-150 ease-in-out hover:bg-rose-400 rounded text-white px-8 py-2 text-sm" type="reset">reset</button> */}
                     </div>
                 </div>
 
