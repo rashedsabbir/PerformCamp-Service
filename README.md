@@ -20,7 +20,7 @@ Our site is divided into two parts. One is our website for purchasing services. 
   - Username: hasan@mail.com
   - Password: 12345678
   
-## Github Ripo: 
-	- Home site repo- https://github.com/saklain71/performcamp
-	- Dashboard site repo- https://github.com/rashedsabbir/PerformCamp-Service
-	- Server side repo- https://github.com/rashedsabbir/PerformCamp-Service-Server
+## Github Ripo
+  - Home site repo- https://github.com/saklain71/performcamp
+  - Dashboard site repo- https://github.com/rashedsabbir/PerformCamp-Service
+  - Server side repo- https://github.com/rashedsabbir/PerformCamp-Service-Server
