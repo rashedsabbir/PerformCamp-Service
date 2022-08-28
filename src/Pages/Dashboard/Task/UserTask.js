@@ -28,7 +28,7 @@ const UserTask = () => {
         }
     }, [user]);
 
-    const handleConfirm = ({ task, link, setLink }) => {
+    const handleConfirm = ({ task, link, handleInputField }) => {
 
     console.log('inside user task', link);
     const pendingTask ={
@@ -55,7 +55,7 @@ const UserTask = () => {
             .then(data => {
                 console.log(data);
                 if (data.success) {
-                    setLink("");
+                   
                 }
 
             })
@@ -73,12 +73,12 @@ const UserTask = () => {
                     toast.success(`task: ${task._id} is deleted`);
                     const remaining = tasks.filter(t => t._id !== task._id);
                     setTasks(remaining);
-                    setLink('');
+                   
                 }
 
             })
 
-
+  handleInputField();
     }
 
 

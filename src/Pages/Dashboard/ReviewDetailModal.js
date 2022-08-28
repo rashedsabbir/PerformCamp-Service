@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ReviewDetailModal = ({review}) => {
+    
     return (
         <div>
             <input type="checkbox" id="details-review-modal" className="modal-toggle" />
