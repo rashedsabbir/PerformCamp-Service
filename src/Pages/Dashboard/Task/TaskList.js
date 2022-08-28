@@ -13,7 +13,7 @@ const TaskList = () => {
     useEffect(() => {
 
         if(user){
-            fetch(`http://localhost:5000/managerTask/${user?.email}`, {
+            fetch(`https://whispering-gorge-29329.herokuapp.com/managerTask/${user?.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

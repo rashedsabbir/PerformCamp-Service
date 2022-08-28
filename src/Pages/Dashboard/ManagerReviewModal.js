@@ -16,8 +16,6 @@ const ManagerReviewModal = ({handleReviewSubmit, review}) => {
     }
 
     function handleComment(){
-
-
         return document.getElementById('comment').value ="";
     }
 

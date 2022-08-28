@@ -7,15 +7,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toast } from 'react-toastify';
 
 
+
 const EmployeeReview = () => {
 
     const [reviews, setReviews] = useState([]);
-    const starRating = <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+
     const [user] = useAuthState(auth);
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/employeeReviews/${user?.email}`, {
+            fetch(`https://whispering-gorge-29329.herokuapp.com/employeeReviews/${user?.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -39,7 +40,7 @@ const EmployeeReview = () => {
             }
             return total;
         }
-
+        
         let ratings = getRatingSum(reviews);
         console.log(ratings);
 
@@ -51,13 +52,18 @@ const EmployeeReview = () => {
             ratings: ratings
         }
 
-        fetch(`http://localhost:5000/leaderboard/${user?.email}`, {
+        fetch(`https://whispering-gorge-29329.herokuapp.com/leaderboard/${user?.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(updateleaderboard)
         })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                toast.success('You are short listed for employee of the month')
+            })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -70,9 +76,7 @@ const EmployeeReview = () => {
         <div>
             <h1 className='text-2xl font-bold text-primary text-center py-8'>You have {reviews.length} {reviews.length > 1 ? 'reviews' : 'review'}  from Managers</h1>
 
-
-            <p onClick={handleUpdate} className='text-rose-400 text-xl font-bold text-center'><button className='btn btn-success rounded'>Update</button> your reviews to leaderboard to be the best employee of the month! </p>
-
+            <p onClick={handleUpdate} className='text-rose-400 text-xl font-bold text-center'>Participate in the ''Best Employee of The Month'' Contest! <button className='btn btn-success rounded'>Participate</button></p>
 
             <div className='grid lg:grid-cols-2  lg:mx-16 '>
                 {
@@ -90,14 +94,14 @@ const EmployeeReview = () => {
                             </div>
 
                             <div class="flex justify-between mt-4">
-                            <div className='mr-2 lg: mr-8'>
-                            <Rating
-                                    initialRating={review.rating}
-                                    emptySymbol={<FontAwesomeIcon icon={faStar} />}
-                                    fullSymbol={<FontAwesomeIcon style={{ color: 'gold' }} icon={faStar} />}
-                                    readonly
-                                ></Rating> <span className='text-md font-medium text-indigo-500'>({review.rating}/5)</span>
-                            </div>
+                                <div className='mr-2 lg: mr-8'>
+                                    <Rating
+                                        initialRating={review.rating}
+                                        emptySymbol={<FontAwesomeIcon icon={faStar} />}
+                                        fullSymbol={<FontAwesomeIcon style={{ color: 'gold' }} icon={faStar} />}
+                                        readonly
+                                    ></Rating> <span className='text-md font-medium text-indigo-500'>({review.rating}/5)</span>
+                                </div>
                                 <p class="text-xl font-medium text-indigo-500">{review.givenBy}</p>
                             </div>
 

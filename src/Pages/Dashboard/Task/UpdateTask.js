@@ -3,6 +3,7 @@ import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import Modal from "react-modal";
+import { toast } from 'react-toastify';
 
 const customStyles = {
     content: {
@@ -42,7 +43,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
     const title = event.target.title.value;
     const description = event.target.description.value;
 
-    fetch(`http://localhost:5000/task/${id}`, {
+    fetch(`https://whispering-gorge-29329.herokuapp.com/task/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +54,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
       .then((res) => res.json())
       .then((data) => {
         setIsReload(!isReload);
-        // console.log(data);
+        toast.success('posted successfully');
       }
       )
       
