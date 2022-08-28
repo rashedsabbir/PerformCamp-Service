@@ -75,10 +75,7 @@ const UserTask = () => {
                     setTasks(remaining);
                     setLink('');
                 }
-
             })
-
-
     }
 
 

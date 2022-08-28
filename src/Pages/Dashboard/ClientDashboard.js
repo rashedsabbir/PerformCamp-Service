@@ -39,7 +39,7 @@ const ClientDashboard = () => {
                   user.photoURL ? <img
                   src={user?.photoURL}
                   className="cursor-pointer mask mask-circle duration-500 hover:transition hover:animation-ping" 
-                  alt="" /> : <img src="https://png.pngtree.com/png-vector/20190225/ourlarge/pngtree-vector-avatar-icon-png-image_702436.jpg" alt="" className="h-8 w-8 rounded-full" />
+                  alt="" /> : <img src="https://png.pngtree.com/png-vector/20190225/ourlarge/pngtree-vector-avatar-icon-png-image_702436.jpg" alt="" className="h-24 w-24 rounded-full" />
                 }
                         
 

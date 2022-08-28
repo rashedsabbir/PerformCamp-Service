@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import ReviewDetailModal from './ReviewDetailModal';
@@ -13,6 +13,7 @@ const ManagerReview = () => {
     const [employeeReview, setEmployeeReview] = useState(null);
     const [feedback, setFeedback] = useState(null);
     const [user] = useAuthState(auth);
+   
 
     useEffect(() => {
         if (user) {
@@ -32,6 +33,8 @@ const ManagerReview = () => {
 
     const handleReviewSubmit = ({ review, comment, rating }) => {
         console.log('manager', review);
+        
+        
         const employeeReview = {
             title: review.title,
             description: review.description,
@@ -44,6 +47,7 @@ const ManagerReview = () => {
             comment: comment,
             rating: rating
 
+            
         }
 
         if (rating >= 1 && rating <= 5) {
@@ -85,7 +89,8 @@ const ManagerReview = () => {
         else {
             toast.error('Give rating between 1 to 5')
         }
-
+        console.log(employeeReview);
+        
     };
 
 
@@ -103,6 +108,7 @@ const ManagerReview = () => {
             deadline: '',
             comment: comment
 
+            
         }
 
         fetch('https://whispering-gorge-29329.herokuapp.com/feedback', {
@@ -139,10 +145,13 @@ const ManagerReview = () => {
                 }
 
             })
+            function displayLink(link){
+                return link.link<20? link : link.slice(0,20) + "<span>...</span>"
+            }
     }
 
     return (
-        <div>
+        <div className='w-full'>
             <div class="xl:w-full border-b border-gray-300  py-5  ">
                 <div class="flex justify-center">
                     <p class="text-2xl text-gray-800  font-bold ">Pending Review: {reviews.length}</p>
@@ -172,9 +181,9 @@ const ManagerReview = () => {
                                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Done by</span>
                                     {review.employeeName}
                                 </td>
-                                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                                <td class="w-full lg:w-auto p-3  text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Proof</span>
-                                    <span cols='20' rows='3'>{review.proof}</span>
+                                    <span cols='20' rows='3' >{review.proof}</span>
                                 </td>
                                 <td class="w-full lg:w-auto text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
@@ -202,6 +211,7 @@ const ManagerReview = () => {
                 employeeReview && <ManagerReviewModal
                     review={employeeReview}
                     handleReviewSubmit={handleReviewSubmit}
+                    
 
                 >
                 </ManagerReviewModal>}

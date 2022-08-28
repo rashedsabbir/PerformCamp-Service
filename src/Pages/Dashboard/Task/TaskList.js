@@ -26,7 +26,7 @@ const TaskList = () => {
             })
         }
 
-    }, [user]);
+    }, [user, isReload]);
 
 
 
