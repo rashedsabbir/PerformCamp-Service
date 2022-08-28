@@ -1,5 +1,5 @@
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import Modal from "react-modal";

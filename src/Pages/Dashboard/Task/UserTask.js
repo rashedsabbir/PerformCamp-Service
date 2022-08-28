@@ -28,7 +28,7 @@ const UserTask = () => {
         }
     }, [user]);
 
-    const handleConfirm = ({ task, link, setLink }) => {
+    const handleConfirm = ({ task, link, handleInputField }) => {
 
     console.log('inside user task', link);
     const pendingTask ={
@@ -55,7 +55,7 @@ const UserTask = () => {
             .then(data => {
                 console.log(data);
                 if (data.success) {
-                    setLink("");
+                   
                 }
 
             })
@@ -73,9 +73,11 @@ const UserTask = () => {
                     toast.success(`task: ${task._id} is deleted`);
                     const remaining = tasks.filter(t => t._id !== task._id);
                     setTasks(remaining);
-                    setLink('');
+                   
                 }
             })
+
+  handleInputField();
     }
 
 
@@ -100,9 +102,9 @@ const UserTask = () => {
                                 </div>
                             </div>
                             <div>
-                                <div className="flex flex-col ">
+                                <div className="grid grid-cols-1 ">
                                     <div className=" overflow-x-auto ">
-                                        <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                        <div className="py-2 align-middle inline-block  ">
                                             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                                 <table className="min-w-full text-center divide-y divide-gray-200">
                                                     <thead className="bg-gray-50 font-bold">
@@ -135,7 +137,7 @@ const UserTask = () => {
     scope="col"
     className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
 >
-
+    Action
 </th>
 
 </tr>
@@ -163,7 +165,7 @@ tasks.map((task, index) => {
 
                 <div className='lg:ml-12'>
 
-                    <label onClick={() => setDetailsTask(task)} for="details-task-modal" className="btn btn-primary rounded-xl mx-4 text-white">Details</label>
+                    <label onClick={() => setDetailsTask(task)} for="details-task-modal" className="btn btn-primary rounded-xl mx-2 text-white">Details</label>
 
                     <label onClick={() => setCompleteTask(task)} for="complete-task-modal" className="btn btn-outline btn-error rounded-2xl">Complete</label>
 

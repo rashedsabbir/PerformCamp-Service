@@ -31,10 +31,8 @@ const ManagerReview = () => {
         }
     }, [user]);
 
-    const handleReviewSubmit = ({ review, comment, rating }) => {
-        console.log('manager', review);
-        
-        
+    const handleReviewSubmit = ({ review, comment, rating, handleComment, handleRating}) => {
+        console.log('manager', handleComment, handleRating);
         const employeeReview = {
             title: review.title,
             description: review.description,
@@ -80,10 +78,14 @@ const ManagerReview = () => {
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount) {
-                        toast.success(`review: ${review.id} is deleted`);
+                        toast.success(`review: ${review._id} is deleted`);
 
                     }
                 })
+
+            handleComment();
+            handleRating();
+
         }
 
         else {
@@ -95,8 +97,8 @@ const ManagerReview = () => {
 
 
 
-    const handleFeedbackSubmit = ({ review, comment }) => {
-        console.log('inside review', review);
+    const handleFeedbackSubmit = ({ review, comment, handleComment}) => {
+        console.log('inside review', handleComment);
 
         const feedbackTask = {
             feedbackId: review._id,
@@ -105,7 +107,7 @@ const ManagerReview = () => {
             email: review.email,
             appointeeEmail: user?.email,
             appointeeName: user?.displayName,
-            deadline: '',
+            deadline: review.deadline,
             comment: comment
 
             
@@ -123,7 +125,7 @@ const ManagerReview = () => {
             .then(data => {
                 console.log(data);
                 if (data.success) {
-                    toast('Feedback is posted succesfully')
+                    toast('Feedback is posted successfully');
                 }
 
             })
@@ -142,12 +144,12 @@ const ManagerReview = () => {
                     toast.success(`review: ${review._id} is deleted`);
                     const remaining = reviews.filter(r => r._id !== review._id);
                     setReviews(remaining);
+                    
                 }
 
             })
-            function displayLink(link){
-                return link.link<20? link : link.slice(0,20) + "<span>...</span>"
-            }
+
+       handleComment();
     }
 
     return (

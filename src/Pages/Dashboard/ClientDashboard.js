@@ -35,6 +35,7 @@ const ClientDashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <span class="absolute right-28 my-4 z-10 inline-flex rounded-full h-3 w-3 bg-green-300"></span>
                     <div className="flex flex-col gap-x-4 items-center">
+                    
                     {
                   user.photoURL ? <img
                   src={user?.photoURL}
