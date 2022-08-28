@@ -8,6 +8,12 @@ const FeedbackModal = ({review, handleFeedbackSubmit}) => {
         setComment(event.target.value);
         console.log(event.target.value);
     }
+
+    function handleComment(){
+
+
+        return document.getElementById('comment').value ="";
+    }
     return (
         
               <div>
@@ -15,10 +21,10 @@ const FeedbackModal = ({review, handleFeedbackSubmit}) => {
         <div className="modal modal-bottom sm:modal-middle">
             <div className="modal-box">
                 <p className='text-lg text-orange-400'>Please give the feedback!</p>
-                <textarea onBlur={handleCommentBlur} class="form-control textarea textarea-info w-full rounded-2xl max-w-xs my-2" cols="25" rows="2" placeholder="Give the feedback here" name='description' required></textarea>
+                <textarea id="comment" onBlur={handleCommentBlur} class="form-control textarea textarea-info w-full rounded-2xl max-w-xs my-2" cols="25" rows="2" placeholder="Give the feedback here" name='description' required></textarea>
                 <div className="modal-action">
                     <label for="feedback-modal" className="btn btn-xs btn-outline btn-error">Cancel</label>
-                    <button onClick={() => handleFeedbackSubmit({review,comment})
+                    <button onClick={() => handleFeedbackSubmit({review,comment, handleComment})
                     }  className="btn btn-outline btn-success btn-xs text-white" >Submit</button>
                 </div>
             </div>

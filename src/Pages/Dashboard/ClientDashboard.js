@@ -36,10 +36,12 @@ const ClientDashboard = () => {
                     <span class="absolute right-28 my-4 z-10 inline-flex rounded-full h-3 w-3 bg-green-300"></span>
                     <div className="flex flex-col gap-x-4 items-center">
                     
-                        <img
-                            src={user?.photoURL}
-                            className="cursor-pointer mask mask-circle duration-500 hover:transition hover:animation-ping" 
-                            alt="" />
+                    {
+                  user.photoURL ? <img
+                  src={user?.photoURL}
+                  className="cursor-pointer mask mask-circle duration-500 hover:transition hover:animation-ping" 
+                  alt="" /> : <img src="https://png.pngtree.com/png-vector/20190225/ourlarge/pngtree-vector-avatar-icon-png-image_702436.jpg" alt="" className="h-24 w-24 rounded-full cursor-pointer mask mask-circle duration-500 hover:transition hover:animation-ping" />
+                }
 
                         <div>
                             {
