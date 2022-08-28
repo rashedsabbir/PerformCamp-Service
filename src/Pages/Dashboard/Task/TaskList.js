@@ -1,8 +1,12 @@
+import { faRemove, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import './TaskList.css'
 import UpdateModal from './UpdateTask';
+import { toast } from 'react-toastify';
+import { Icon } from '@iconify/react';
 
 const TaskList = () => {
     const [tasks, setTasks] = useState([]);
@@ -28,7 +32,25 @@ const TaskList = () => {
 
     }, [user, isReload]);
 
+    const handleDelete = (task) => {
 
+        fetch(`https://whispering-gorge-29329.herokuapp.com/task/${task._id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount) {
+                    toast.success(`task: ${task.title} is deleted`);
+                    const remaining = tasks.filter(t => t._id !== task._id);
+                    setTasks(remaining);
+                   
+                }
+            })
+    }
 
     return (
         <div>
@@ -49,19 +71,26 @@ const TaskList = () => {
                             </div>
                             <div class="mt-8">
                                 <p class="text-xl font-semibold my-2">{task?.title}</p>
-                                <div class="flex space-x-2 text-gray-400 text-sm">
+                                <div class="flex space-x-2 py-2 text-gray-400 text-sm">
 
 
                                     <p>{task?.description}</p>
+                                    
                                 </div>
+                                <div className='justify-items-end text-gray-400 text-sm grid-rows-1 grid  gap-0'>
+                                <Icon icon="mdi-light:clock" />
+                                {task?.deadline}
                                 
+                                </div>
                                 <div class="border-t-2"></div>
 
-                                <div class="flex  justify-center">
-                                    <div class="my-2">
+                                <div class="flex justify-center">
+                                    <div class="my-2 grid grid-rows-1 grid-cols-2 place-content-between gap-2">
 
                                         <UpdateModal setIsReload={setIsReload} isReload={isReload} id={task?._id} />
-
+                                        <button onClick={() => handleDelete(task)} className=' py-2 shadow-lg text-white rounded-lg bg-pink-500 hover:bg-warning px-2'>
+        <FontAwesomeIcon icon={faRemove}></FontAwesomeIcon>
+      </button>
                                     </div>
                                 </div>
                             </div>

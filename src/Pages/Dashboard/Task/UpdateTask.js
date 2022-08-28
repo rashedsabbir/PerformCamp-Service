@@ -66,7 +66,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
     return (
         <div className=" rounded-lg">
       
-      <button onClick={openModal} className=' py-4 shadow-lg rounded-lg bg-pink-500 flex justify-center px-4'>
+      <button onClick={openModal} className=' py-4 shadow-lg rounded-lg bg-pink-500 hover:bg-success flex justify-center px-4'>
         <FontAwesomeIcon className='text-white ' icon={faEdit}></FontAwesomeIcon>
       </button>
       <Modal
