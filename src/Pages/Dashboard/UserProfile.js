@@ -9,6 +9,7 @@ import Goal from './Goal';
 import Feedback from './Feedback';
 import Loading from '../Loading/Loading';
 import Clock from './Clock/Clock'
+import ChatwootWidget from './Chatwoot/Chatwoot';
 
 const UserProfile = () => {
   const [user, loading] = useAuthState(auth)
@@ -60,7 +61,7 @@ const UserProfile = () => {
     </div>
     
     </div>
-                        
+                       
     </div>
   );
 };

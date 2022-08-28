@@ -84,6 +84,7 @@ const ClientDashboard = () => {
                                 <li className='text-xl text-gray-50 '><Link to="/employeeReview"><img src={search} alt="" />Review</Link></li>
                             </>
                         }
+                        <li className='text-xl text-gray-50 '><Link to="/support"><img src={setting} style={{ width: '24px', height: '24px' }} alt="" />Support</Link></li>
 
                     </ul>
                 </div>
