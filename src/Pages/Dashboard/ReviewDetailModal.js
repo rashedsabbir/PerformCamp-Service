@@ -11,7 +11,7 @@ const ReviewDetailModal = ({review}) => {
                 <p className='text-md'><span className='text-blue-400'>Description:</span> {review.description}</p>
                 <p><span className='text-blue-400'>Employee Name:</span> {review.employeeName}</p>
                 <p><span className='text-blue-400'>Employee Email:</span> {review.email}</p>
-                <p><span className='text-blue-400'>Deadline: </span></p>
+                <p><span className='text-blue-400'>Deadline: </span>{review.deadline}</p>
                 <p><span className='text-blue-400'>Proof:</span> {review.proof}</p>
                 <div className="modal-action">
                     <label for="details-review-modal" className="btn btn-xs btn-outline btn-error">Cancel</label>

@@ -13,7 +13,6 @@ const CompleteTaskModal = ({task, handleConfirm}) => {
         return document.getElementById('linkField').value = "";
     }
 
-  
     return (
         <div>
         <input type="checkbox" id="complete-task-modal" className="modal-toggle" />

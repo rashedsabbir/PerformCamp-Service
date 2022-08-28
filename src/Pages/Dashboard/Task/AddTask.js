@@ -16,33 +16,23 @@ const AddTask = () => {
     const [date, setDate] = useState(new Date())
     const onSubmit = data => {
 
-        // const task = {
-        //     title: event?.target?.title?.value,
-        //     description: event?.target?.description?.value,
-        //     email: event?.target?.email?.value,
-        //     appointee: user?.email,
-        //     deadline: '',
+        fetch('https://whispering-gorge-29329.herokuapp.com/task', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
 
-        // }
-        console.log(data)
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
 
-        // fetch('https://whispering-gorge-29329.herokuapp.com/task', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json',
+                if (data.acknowledged === true) {
+                    toast("Task Has been submit Successfully!")
+                    reset();
+                }
 
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-
-        //         if (data.acknowledged === true) {
-        //             toast("Task Has been submit Successfully!")
-        //             reset();
-        //         }
-
-        //     })
+            })
 
     };
 
@@ -58,7 +48,7 @@ const AddTask = () => {
                         </div>
                         <div class="">
                             <div class="">
-                                <div class="mt-10 flex flex-col items-center ">
+                                <div class="mt-10 flex flex-col items-center">
                                     <label for="title" class="pb-2 font-bold text-black">Title</label>
                                     <input {...register("title", { required: "Title is required" })} tabindex="0" type="text" id="title" name="title" required class="border border-gray-300 dark:border-gray-700 pl-3 py-3  shadow-xl rounded text-sm focus:outline-none focus:border-indigo-700 bg-amber-200 placeholder-gray-500 text-gray-600 dark:text-gray-400" cols="30" rows="1" placeholder="Task title" />
                                     <p className='text-red-500'>{errors.title?.message}</p>

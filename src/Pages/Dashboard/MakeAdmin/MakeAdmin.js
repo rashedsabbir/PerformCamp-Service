@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { faRemove } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const MakeAdmin = () => {
   const [userData, setUserData] = useState([]);
+  const [isReload, setIsReload] = useState(false);
 
   const roleChangeRef = useRef()
   useEffect(() => {
     fetch('https://whispering-gorge-29329.herokuapp.com/user')
       .then(res => res.json())
       .then(data => setUserData(data))
-  }, [userData])
+  }, [userData, isReload])
 
   const handleEdit = (email) => {
     //   // const roleChange = roleChangeRef.current.value;
@@ -37,8 +39,28 @@ const MakeAdmin = () => {
         }
       })
 
+  }
 
+  const handleDelete = (email) =>{
 
+    fetch(`https://whispering-gorge-29329.herokuapp.com/user/${email}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount) {
+
+                    toast.success(`Selected user is deleted`);
+                    
+                    setIsReload(!isReload);
+                    
+                }
+
+            })
   }
 
   return (
@@ -130,8 +152,11 @@ const MakeAdmin = () => {
                         <td className="px-6 py-4 whitespace-nowrap px-6 py-4 whitespace-nowrap w-full lg:w-auto text-gray-800 text-center  block lg:table-cell relative lg:static lg:border-none border-b border-1">
                         <span class="lg:hidden absolute top-3 left-0 text-blue-400 px-4 py-1 text-md font-bold uppercase">Edit</span>
                         <div className='flex justify-end w-full'>
-                        <button className=" btn btn-outline  btn-error rounded-2xl" onClick={() => handleEdit(person.email)}>
+                        <button className=" btn btn-outline mr-2 btn-error rounded-2xl" onClick={() => handleEdit(person.email)}>
                           Make Manager
+                        </button>
+                        <button className=" btn btn-outline  btn-error rounded-2xl" onClick={() => handleDelete(person.email)}>
+                          <FontAwesomeIcon icon={faRemove}></FontAwesomeIcon>
                         </button>
                         </div>
 
