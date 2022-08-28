@@ -85,8 +85,13 @@ const EmployeeReview = () => {
 
 
                             <div class="flex justify-center md:justify-end -mt-16">
-
-                                <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src={review.image} alt="" />
+                            {
+                  review.image ? <img
+                  src={review.image}
+                  className="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" 
+                  alt="" /> : <img src="https://png.pngtree.com/png-vector/20190225/ourlarge/pngtree-vector-avatar-icon-png-image_702436.jpg" alt="" className="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" />
+                }
+                                
                             </div>
                             <div>
                                 <h2 class="text-gray-800 text-3xl font-semibold">Task: {review.title}</h2>
