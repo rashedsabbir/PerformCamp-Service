@@ -24,16 +24,16 @@ const ClientDashboard = () => {
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content w-full h-full flex flex-col items-center bg-base-200">
                 <Navbar></Navbar>
-                
+
                 {/* <!-- Page content here --> */}
                 <Outlet className=''></Outlet>
-                
+
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <div className="menu p-4 overflow-y-auto w-80 bg-teal-500 text-base-content">
                     {/* <!-- Sidebar content here --> */}
-                    <span class="absolute right-28 my-4 z-10 inline-flex rounded-full h-3 w-3 bg-green-300"></span>
+                    <span className="absolute right-28 my-4 z-10 inline-flex rounded-full h-3 w-3 bg-green-300"></span>
                     <div className="flex flex-col gap-x-4 items-center">
                     
                     {
@@ -59,7 +59,7 @@ const ClientDashboard = () => {
                     </div>
                     <ul>
                         <li className='text-xl text-gray-50 '><Link to="/"><img src={home1} style={{ width: '24px', height: '24px' }} alt="" />Home</Link></li>
-                        
+
 
 
                         {
@@ -76,9 +76,9 @@ const ClientDashboard = () => {
 
                         {
                             !manager && <>
-                            <li className='text-xl text-gray-50 '><Link to="/goal"><img src={analytics} alt="" />Goal</Link></li>
-                             <li className='text-xl text-gray-50 '><Link to="/leaderboard"><img src={leaderboard} alt="" />Leaderboard</Link></li>
-                             <li className='text-xl text-gray-50 '><Link to="/deadline"><img src={schedule} alt="" />Deadline</Link></li>
+                                <li className='text-xl text-gray-50 '><Link to="/goal"><img src={analytics} alt="" />Goal</Link></li>
+                                <li className='text-xl text-gray-50 '><Link to="/leaderboard"><img src={leaderboard} alt="" />Leaderboard</Link></li>
+                                <li className='text-xl text-gray-50 '><Link to="/deadline"><img src={schedule} alt="" />Deadline</Link></li>
                                 <li className='text-xl text-gray-50 '><Link to="/user-task"><img src={task} alt="" />Tasks</Link></li>
                                 <li className='text-xl text-gray-50 '><Link to="/feedback"><img src={files} alt="" /> Feedback</Link></li>
                                 <li className='text-xl text-gray-50 '><Link to="/employeeReview"><img src={search} alt="" />Review</Link></li>

@@ -22,15 +22,15 @@ const customStyles = {
   Modal.setAppElement("#root");
 
 export default function UpdateModal({ id, setIsReload, isReload }) {
-    // console.log(id);
-    const [modalIsOpen, setIsOpen] = React.useState(false);
+  // console.log(id);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
     setIsOpen(true);
   }
 
   function afterOpenModal() {
-    
+
   }
 
   
@@ -40,6 +40,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
     event.preventDefault();
     const title = event.target.title.value;
     const description = event.target.description.value;
+    
 
     function closeModal() {
       setIsOpen(false);
@@ -51,7 +52,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ title, description }),
-      
+
     })
       .then((res) => res.json())
       .then((data) => {
@@ -60,7 +61,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
         closeModal();
       }
       )
-      
+
   };
 
     return (
@@ -83,7 +84,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
         <div className=" mt-3">
           <form className="container " onSubmit={handleUpdate}>
             <div className=" mb-3 mt-5 ">
-            
+
               <input
                 type="text"
                 className="form-control input input-warning text-black border px-5 py-2 rounded-xl"
@@ -95,8 +96,8 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
             </div>
 
             <div className=" ">
-              
-              <textarea class="form-control textarea textarea-warning w-full rounded-2xl max-w-xs mb-3" cols="25" rows="3" placeholder="Update description" name='description' required></textarea>
+
+              <textarea className="form-control textarea textarea-warning w-full rounded-2xl max-w-xs mb-3" cols="25" rows="3" placeholder="Update Description" name='description' required></textarea>
             </div>
             <div className="mt-4 flex justify-center">
               <input type="submit" value="submit" className="btn text-white btn-error hover:btn-success " />
@@ -105,5 +106,5 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
         </div>
       </Modal>
     </div>
-    );
+  );
 };
