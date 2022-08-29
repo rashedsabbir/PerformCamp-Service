@@ -89,13 +89,13 @@ const Feedback = () => {
                         </div>
                     </div>
                     :
-                    <div className="xl:w-full py-5  ">
-                        <div className="flex justify-center">
-                            <p className="text-2xl text-teal-400 font-bold ">You have {feedbacks.length} {feedbacks.length > 1 ? 'feedbacks' : 'feedback'}</p>
+                    <div class="xl:w-full py-5  ">
+                        <div class="flex justify-center gap-6">
+                            <p class="text-2xl text-teal-400 font-bold ">You have {feedbacks.length} {feedbacks.length > 1 ? 'feedbacks' : 'feedback'}</p>
                         </div>
                     </div>
             }
-            <div className='grid grid-cols-1 lg:grid-cols-3 lg:mx-12'>
+            <div className='grid grid-cols-1 lg:grid-cols-2  gap-8'>
                 {
                     feedbacks.map(feedback => <div className="card w-96 bg-base-100 shadow-xl bg-gradient-to-r from-orange-100 to-slate-200">
                         <div className="card-body">

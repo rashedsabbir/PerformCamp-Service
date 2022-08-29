@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import ReviewDetailModal from './ReviewDetailModal';
@@ -13,6 +13,7 @@ const ManagerReview = () => {
     const [employeeReview, setEmployeeReview] = useState(null);
     const [feedback, setFeedback] = useState(null);
     const [user] = useAuthState(auth);
+   
 
     useEffect(() => {
         if (user) {
@@ -30,8 +31,8 @@ const ManagerReview = () => {
         }
     }, [user]);
 
-    const handleReviewSubmit = ({ review, comment, rating }) => {
-        console.log('manager', review);
+    const handleReviewSubmit = ({ review, comment, rating, handleComment, handleRating}) => {
+        console.log('manager', handleComment, handleRating);
         const employeeReview = {
             title: review.title,
             description: review.description,
@@ -44,6 +45,7 @@ const ManagerReview = () => {
             comment: comment,
             rating: rating
 
+            
         }
 
         if (rating >= 1 && rating <= 5) {
@@ -76,22 +78,27 @@ const ManagerReview = () => {
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount) {
-                        toast.success(`review: ${review.id} is deleted`);
+                        toast.success(`review: ${review._id} is deleted`);
 
                     }
                 })
+
+            handleComment();
+            handleRating();
+
         }
 
         else {
             toast.error('Give rating between 1 to 5')
         }
-
+        console.log(employeeReview);
+        
     };
 
 
 
-    const handleFeedbackSubmit = ({ review, comment }) => {
-        console.log('inside review', review);
+    const handleFeedbackSubmit = ({ review, comment, handleComment}) => {
+        console.log('inside review', handleComment);
 
         const feedbackTask = {
             feedbackId: review._id,
@@ -100,9 +107,10 @@ const ManagerReview = () => {
             email: review.email,
             appointeeEmail: user?.email,
             appointeeName: user?.displayName,
-            deadline: '',
+            deadline: review.deadline,
             comment: comment
 
+            
         }
 
         fetch('https://whispering-gorge-29329.herokuapp.com/feedback', {
@@ -117,7 +125,7 @@ const ManagerReview = () => {
             .then(data => {
                 console.log(data);
                 if (data.success) {
-                    toast('Feedback is posted succesfully')
+                    toast('Feedback is posted successfully');
                 }
 
             })
@@ -136,16 +144,19 @@ const ManagerReview = () => {
                     toast.success(`review: ${review._id} is deleted`);
                     const remaining = reviews.filter(r => r._id !== review._id);
                     setReviews(remaining);
+                    
                 }
 
             })
+
+       handleComment();
     }
 
     return (
-        <div>
-            <div className="xl:w-full border-b border-gray-300  py-5  ">
-                <div className="flex justify-center">
-                    <p className="text-2xl text-green-500  font-bold ">Pending Review: {reviews.length}</p>
+        <div className='w-full'>
+            <div class="xl:w-full border-b border-gray-300  py-5  ">
+                <div class="flex justify-center">
+                    <p class="text-2xl text-gray-800  font-bold ">Pending Review: {reviews.length}</p>
                 </div>
             </div>
             <table className="border-collapse w-full mt-10">
@@ -172,9 +183,9 @@ const ManagerReview = () => {
                                     <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Done by</span>
                                     {review.employeeName}
                                 </td>
-                                <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                                    <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Proof</span>
-                                    <span cols='20' rows='3'>{review.proof}</span>
+                                <td class="w-full lg:w-auto p-3  text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Proof</span>
+                                    <span cols='20' rows='3' >{review.proof}</span>
                                 </td>
                                 <td className="w-full lg:w-auto text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                                     <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
@@ -202,6 +213,7 @@ const ManagerReview = () => {
                 employeeReview && <ManagerReviewModal
                     review={employeeReview}
                     handleReviewSubmit={handleReviewSubmit}
+                    
 
                 >
                 </ManagerReviewModal>}

@@ -35,11 +35,12 @@ const ClientDashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <span className="absolute right-28 my-4 z-10 inline-flex rounded-full h-3 w-3 bg-green-300"></span>
                     <div className="flex flex-col gap-x-4 items-center">
+                    
                     {
                   user.photoURL ? <img
                   src={user?.photoURL}
                   className="cursor-pointer mask mask-circle duration-500 hover:transition hover:animation-ping" 
-                  alt="" /> : <img src="https://png.pngtree.com/png-vector/20190225/ourlarge/pngtree-vector-avatar-icon-png-image_702436.jpg" alt="" className="h-8 w-8 rounded-full" />
+                  alt="" /> : <img src="https://png.pngtree.com/png-vector/20190225/ourlarge/pngtree-vector-avatar-icon-png-image_702436.jpg" alt="" className="h-24 w-24 rounded-full" />
                 }
                         
 
@@ -83,6 +84,7 @@ const ClientDashboard = () => {
                                 <li className='text-xl text-gray-50 '><Link to="/employeeReview"><img src={search} alt="" />Review</Link></li>
                             </>
                         }
+                        <li className='text-xl text-gray-50 '><Link to="/support"><img src={setting} style={{ width: '24px', height: '24px' }} alt="" />Support</Link></li>
 
                     </ul>
                 </div>
