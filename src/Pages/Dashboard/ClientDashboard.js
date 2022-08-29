@@ -33,7 +33,7 @@ const ClientDashboard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <div className="menu p-4 overflow-y-auto w-80 bg-teal-500 text-base-content">
                     {/* <!-- Sidebar content here --> */}
-                    <span class="absolute right-28 my-4 z-10 inline-flex rounded-full h-3 w-3 bg-green-300"></span>
+                    <span className="absolute right-28 my-4 z-10 inline-flex rounded-full h-3 w-3 bg-green-300"></span>
                     <div className="flex flex-col gap-x-4 items-center">
                     {
                   user.photoURL ? <img

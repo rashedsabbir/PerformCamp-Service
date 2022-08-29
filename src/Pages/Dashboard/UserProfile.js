@@ -1,5 +1,4 @@
 import React from 'react';
-import './UserProfile.css'
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -22,11 +21,11 @@ const UserProfile = () => {
     <div className='h-full w-full'>
       <h1 className='text-center text-teal-400 pt-2 font-bold text-2xl'>Welcome {user?.displayName}!</h1>
       <Clock></Clock>
-      <div class="  flex flex-row flex-wrap p-3">
-        <div class="mx-auto w-2/3 user-background">
+      <div className="  flex flex-row flex-wrap p-3">
+        <div className="mx-auto w-2/3 user-background">
 
-          <div class="rounded-lg shadow-lg bg-teal-500 backdrop-blur-md w-full flex flex-row flex-wrap p-3 antialiased" >
-            <div class="md:w-1/3 w-full">
+          <div className="rounded-lg shadow-lg bg-teal-500 backdrop-blur-md w-full flex flex-row flex-wrap p-3 antialiased" >
+            <div className="md:w-1/3 w-full">
 
               {
                 user.photoURL ? <img referrerPolicy="no-referrer"
@@ -37,21 +36,21 @@ const UserProfile = () => {
                 /> : <img src="https://png.pngtree.com/png-vector/20190225/ourlarge/pngtree-vector-avatar-icon-png-image_702436.jpg" alt="" className="rounded-lg w-32 shadow-lg antialiased" />
               }
             </div>
-            <div class="md:w-2/3 w-full px-3  flex flex-row flex-wrap">
-              <div class="w-full text-right text-gray-700 font-semibold relative pt-3 md:pt-0">
+            <div className="md:w-2/3 w-full px-3  flex flex-row flex-wrap">
+              <div className="w-full text-right text-gray-700 font-semibold relative pt-3 md:pt-0">
 
 
 
-                <div class="text-2xl lg:text-4xl text-white leading-tight">
+                <div className="text-2xl lg:text-4xl text-white leading-tight">
                   <p>{user?.displayName}</p>
                 </div>
-                <div class="text-normal text-gray-300 hover:text-gray-400 cursor-pointer">
+                <div className="text-normal text-gray-300 hover:text-gray-400 cursor-pointer">
 
                   {
                     manager ? <p className=' lg:text-2xl'>Manager</p> : <p className=' lg:text-2xl '>Employee</p>
                   }
                 </div>
-                <div class="text-sm text-gray-300 lg:mt-2 border-t-2  border-dashed  border-white pb-1 hover:text-gray-400 cursor-pointer md:absolute pt-3 md:pt-0 bottom-15 right-0">Email: <b>{user?.email}</b>
+                <div className="text-sm text-gray-300 lg:mt-2 border-t-2  border-dashed  border-white pb-1 hover:text-gray-400 cursor-pointer md:absolute pt-3 md:pt-0 bottom-15 right-0">Email: <b>{user?.email}</b>
 
                 </div>
               </div>

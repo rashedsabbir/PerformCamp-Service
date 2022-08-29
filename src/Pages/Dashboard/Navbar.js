@@ -34,7 +34,7 @@ const Navbar = () => {
         {
           user ? <div>
             <Menu as="div" className="ml-3 z-30 relative">
-            <span class="absolute right-8 my-1 z-10 animate-ping inline-flex rounded-full h-1 w-1 bg-green-300"></span>
+            <span className="absolute right-8 my-1 z-10 animate-ping inline-flex rounded-full h-1 w-1 bg-green-300"></span>
               <div className="flex justify-center items-center gap-3">
                 <span className="text-white font-bold lg:block hidden">{user.displayName}</span>
                 

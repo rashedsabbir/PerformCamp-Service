@@ -72,21 +72,21 @@ const updateleaderboard = {
             
             <p onClick={handleUpdate} className='text-rose-400 text-xl font-bold text-center'>Participate in the ''Best Employee of The Month'' Contest! <button className='btn btn-success rounded'>Participate</button></p>
             
-            <div className='grid lg:grid-cols-2  lg:mx-16 '>
+            <div className='grid lg:grid-cols-2 lg:mx-16 '>
             {
                 reviews.map(review =>
-                    <div key={review._id} class="max-w-md py-4 px-8 mx-6 bg-white shadow-lg rounded-lg my-20">
+                    <div key={review._id} className="max-w-md py-4 px-8 mx-6 bg-white shadow-lg rounded-lg my-20">
 
-                        <div class="flex justify-center md:justify-end -mt-16">
+                        <div className="flex justify-center md:justify-end -mt-16">
 
-                            <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src={review.image} alt="" />
+                            <img className="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src={review.image} alt="" />
                         </div>
                         <div>
-                            <h2 class="text-gray-800 text-3xl font-semibold">Task: {review.title}</h2>
-                            <p class="mt-2 text-gray-600">{review.description}</p>
+                            <h2 className="text-gray-800 text-3xl font-semibold">Task: {review.title}</h2>
+                            <p className="mt-2 text-gray-600">{review.description}</p>
                         </div>
 
-                        <div class="flex justify-between mt-4">
+                        <div className="flex justify-between mt-4">
                             <div className='mr-2 lg: mr-8'>
                             <Rating
                                     initialRating={review.rating}
@@ -95,7 +95,7 @@ const updateleaderboard = {
                                     readonly
                                 ></Rating> <span className='text-md font-medium text-indigo-500'>({review.rating}/5)</span>
                             </div>
-                                <p class="text-xl font-medium text-indigo-500">{review.givenBy}</p>
+                                <p className="text-xl font-medium text-indigo-500">{review.givenBy}</p>
                             </div>
 
                     </div>

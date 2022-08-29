@@ -67,13 +67,13 @@ const Login = () => {
                 <img src={loginBanner} className='lg:max-w-2xl hidden lg:block' alt="" />
                 <div className='text-center'>
                     <p className='text-lg mt-5 text-center'>If you have any queries, please reach us at</p>
-                    <div class="flex justify-center pb-4 border-r border-gray-300 dark:border-gray-700 px-8 text-gray-800 dark:text-gray-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <div className="flex justify-center pb-4 border-r border-gray-300 dark:border-gray-700 px-8 text-gray-800 dark:text-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-mail" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <rect x="3" y="5" width="18" height="14" rx="2" />
                             <polyline points="3 7 12 13 21 7" />
                         </svg>
-                        <a href='' class="text-sm ml-2 text-blue-500 dark:text-gray-100">info@performcamp.com</a>
+                        <a href='' className="text-sm ml-2 text-blue-500 dark:text-gray-100">info@performcamp.com</a>
                     </div>
                 </div>
             </div>

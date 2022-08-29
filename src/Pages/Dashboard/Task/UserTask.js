@@ -88,18 +88,18 @@ const UserTask = () => {
             <div>
                 {
                     tasks.length === 0 ? <>
-                        <div class="  py-5  ">
-                            <div class="flex justify-center">
-                                <p class="text-2xl text-teal-400  font-bold ">You Have No Task</p>
+                        <div className="  py-5  ">
+                            <div className="flex justify-center">
+                                <p className="text-2xl text-teal-400  font-bold ">You Have No Task</p>
                             </div>
                         </div>
                     </>
                         :
 
                         <>
-                            <div class=" py-5  ">
-                                <div class="flex justify-center">
-                                    <p class="text-2xl text-teal-400  font-bold ">You have {tasks.length} {tasks.length > 1 ? 'tasks' : 'task'}</p>
+                            <div className=" py-5  ">
+                                <div className="flex justify-center">
+                                    <p className="text-2xl text-teal-400  font-bold ">You have {tasks.length} {tasks.length > 1 ? 'tasks' : 'task'}</p>
                                 </div>
                             </div>
                             <div>
