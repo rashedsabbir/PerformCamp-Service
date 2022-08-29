@@ -56,9 +56,9 @@ const AddEmployee = () => {
 
     return (
         <div className='p-2'>
-            <div class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5  dark:bg-gray-800">
-                <div class="flex justify-center">
-                    <p class="text-2xl text-gray-800 dark:text-gray-100 font-bold ">Add New Employee</p>
+            <div className="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5  dark:bg-gray-800">
+                <div className="flex justify-center">
+                    <p className="text-2xl text-green-500 dark:text-gray-100 font-bold ">Add New Employee</p>
                 </div>
             </div>
             <div className='mt-10 flex justify-center items-center'>
@@ -126,7 +126,7 @@ const AddEmployee = () => {
                     </div>
 
 
-                    <input type="submit" class="hover:-translate-y-1 hover:scale-110 btn btn-error text-white font-bold w-full mt-5" value="Add Employee" />
+                    <input type="submit" className="hover:-translate-y-1 hover:scale-110 btn btn-error text-white font-bold w-full mt-5" value="Add Employee" />
                 </form>
             </div>
         </div>

@@ -83,9 +83,9 @@ const Feedback = () => {
 
             {
                 feedbacks.length === 0 ?
-                    <div class="xl:w-full  py-2  ">
-                        <div class="flex justify-center">
-                            <p class="text-2xl text-teal-400 font-bold ">You Have No Feedback</p>
+                    <div className="xl:w-full  py-2  ">
+                        <div className="flex justify-center">
+                            <p className="text-2xl text-teal-400 font-bold ">You Have No Feedback</p>
                         </div>
                     </div>
                     :
@@ -97,9 +97,9 @@ const Feedback = () => {
             }
             <div className='grid grid-cols-1 lg:grid-cols-2  gap-8'>
                 {
-                    feedbacks.map(feedback => <div class="card w-96 bg-base-100 shadow-xl bg-gradient-to-r from-orange-100 to-slate-200">
-                        <div class="card-body">
-                            <h2 class="card-title text-blue-400">Title: {feedback.title}</h2>
+                    feedbacks.map(feedback => <div className="card w-96 bg-base-100 shadow-xl bg-gradient-to-r from-orange-100 to-slate-200">
+                        <div className="card-body">
+                            <h2 className="card-title text-blue-400">Title: {feedback.title}</h2>
                             <p>Description: {feedback.description}</p>
                             <p>Deadline: {feedback.deadline}</p>
                             <p className='border-b-2 border-gray-600 text-md'>Assigned By:</p>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const ManagerReviewModal = ({handleReviewSubmit, review}) => {
+const ManagerReviewModal = ({ handleReviewSubmit, review }) => {
     const [comment, setComment] = useState('');
     const [rating, setRating] = useState('');
     
@@ -28,7 +28,6 @@ const ManagerReviewModal = ({handleReviewSubmit, review}) => {
     }
 
     return (
-        
         <div>
 
   <input type="checkbox" id="manager-review-modal" className="modal-toggle" />
@@ -49,7 +48,7 @@ const ManagerReviewModal = ({handleReviewSubmit, review}) => {
   
 </div>
 
-);
+    );
 };
 
 export default ManagerReviewModal;
