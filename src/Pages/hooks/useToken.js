@@ -9,7 +9,7 @@ const useToken = user => {
         console.log("inside token", user);
         const name = user?.user?.displayName;
         const email = user?.user?.email;
-        const image = user?.puser?.photoURL;
+        const image = user?.user?.photoURL;
         console.log(name, email, image);
         const currentUser = {
             name: name,
