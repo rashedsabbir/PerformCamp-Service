@@ -9,20 +9,11 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import './Deadline.css'
 
-
-
-
-
 function Deadline() {
-  // Array to store month string values
   
-
-  // State for date selected by user
   const [selectedDate, setSelectedDate] = useState([]);
   const [user] = useAuthState(auth);
-
-  // State for text above calander
-  
+ 
   useEffect(() => {
     if (user) {
         fetch(`https://whispering-gorge-29329.herokuapp.com/task/${user?.email}`, {

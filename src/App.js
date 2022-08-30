@@ -21,6 +21,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TaskList from './Pages/Dashboard/Task/TaskList';
+import ChatwootWidget from './Pages/Dashboard/Chatwoot/Chatwoot';
 
 
 function App() {
@@ -47,9 +48,11 @@ function App() {
           <Route path="employeeReview" element={<RequireAuth><EmployeeReview /></RequireAuth>}></Route>
 
 
+          <Route path='support' element={<RequireAuth><ChatwootWidget/></RequireAuth>}></Route>
           <Route path="feedback" element={<RequireAuth><Feedback /></RequireAuth>}></Route>
           <Route path="deadline" element={<RequireAuth><Deadline /></RequireAuth>}></Route>
         </Route>
+        
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer></ToastContainer>

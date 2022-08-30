@@ -30,16 +30,16 @@ const UserTask = () => {
 
     const handleConfirm = ({ task, link, handleInputField }) => {
 
-    console.log('inside user task', link);
-    const pendingTask ={
-        title: task.title,
-        description: task.description,
-        appointee: task.appointee,
-        employeeName: task.employeeName,
-        employeeImage: user?.photoURL,
-        email: task.email,
-        deadline: task.deadline,
-        proof: link
+        console.log('inside user task', link);
+        const pendingTask = {
+            title: task.title,
+            description: task.description,
+            appointee: task.appointee,
+            employeeName: task.employeeName,
+            employeeImage: user?.photoURL,
+            email: task.email,
+            deadline: task.deadline,
+            proof: link
 
         }
 
@@ -55,7 +55,7 @@ const UserTask = () => {
             .then(data => {
                 console.log(data);
                 if (data.success) {
-                   
+
                 }
 
             })
@@ -73,12 +73,11 @@ const UserTask = () => {
                     toast.success(`task: ${task._id} is deleted`);
                     const remaining = tasks.filter(t => t._id !== task._id);
                     setTasks(remaining);
-                   
-                }
 
+                }
             })
 
-  handleInputField();
+        handleInputField();
     }
 
 
@@ -88,94 +87,94 @@ const UserTask = () => {
             <div>
                 {
                     tasks.length === 0 ? <>
-                        <div class="  py-5  ">
-                            <div class="flex justify-center">
-                                <p class="text-2xl text-teal-400  font-bold ">You Have No Task</p>
+                        <div className="  py-5  ">
+                            <div className="flex justify-center">
+                                <p className="text-2xl text-teal-400  font-bold ">You Have No Task</p>
                             </div>
                         </div>
                     </>
                         :
 
                         <>
-                            <div class=" py-5  ">
-                                <div class="flex justify-center">
-                                    <p class="text-2xl text-teal-400  font-bold ">You have {tasks.length} {tasks.length > 1 ? 'tasks' : 'task'}</p>
+                            <div className=" py-5  ">
+                                <div className="flex justify-center">
+                                    <p className="text-2xl text-teal-400  font-bold ">You have {tasks.length} {tasks.length > 1 ? 'tasks' : 'task'}</p>
                                 </div>
                             </div>
                             <div>
-                                <div className="flex flex-col ">
+                                <div className="grid grid-cols-1 ">
                                     <div className=" overflow-x-auto ">
-                                        <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                        <div className="py-2 align-middle inline-block  ">
                                             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                                 <table className="min-w-full text-center divide-y divide-gray-200">
                                                     <thead className="bg-gray-50 font-bold">
                                                         <tr>
-<th
-    scope="col"
-    className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
->
-    Serial
-</th>
-<th
-    scope="col"
-    className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
->
-    Title
-</th>
-<th
-    scope="col"
-    className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
->
-    Deadline
-</th>
-<th
-    scope="col"
-    className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
->
-    Appointee
-</th>
-<th
-    scope="col"
-    className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
->
+                                                            <th
+                                                                scope="col"
+                                                                className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                            >
+                                                                Serial
+                                                            </th>
+                                                            <th
+                                                                scope="col"
+                                                                className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                            >
+                                                                Title
+                                                            </th>
+                                                            <th
+                                                                scope="col"
+                                                                className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                            >
+                                                                Deadline
+                                                            </th>
+                                                            <th
+                                                                scope="col"
+                                                                className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                            >
+                                                                Appointee
+                                                            </th>
+                                                            <th
+                                                                scope="col"
+                                                                className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                            >
+                                                                Action
+                                                            </th>
 
-</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="bg-white divide-y divide-gray-200">
+                                                        {
+                                                            tasks.map((task, index) => {
+                                                                return (
+                                                                    <tr key={task._id}>
+                                                                        <td className="px-6 py-4 whitespace-nowrap">{index + 1}
+                                                                        </td>
+                                                                        <td className="px-6 py-4 whitespace-nowrap">
+                                                                            <div className="">
+                                                                                {task.title}
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="px-6 py-4 whitespace-nowrap">
+                                                                            <div className="text-sm text-gray-900">{task.deadline}</div>
+                                                                        </td>
+                                                                        <td className="px-6 py-4 whitespace-nowrap">
+                                                                            <div className="text-sm text-gray-900">{task?.appointee}</div>
+                                                                        </td>
 
-</tr>
-</thead>
-<tbody className="bg-white divide-y divide-gray-200">
-{
-tasks.map((task, index) => {
-    return (
-        <tr key={task._id}>
-            <td className="px-6 py-4 whitespace-nowrap">{index + 1}
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-                <div className="">
-                    {task.title}
-                </div>
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{task.deadline}</div>
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{task?.appointee}</div>
-            </td>
+                                                                        <td className="px-6 flex gap-4 py-4 whitespace-nowrap text-right text-sm font-medium">
 
-            <td className="px-6 flex gap-4 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                                            <div className='lg:ml-12'>
 
-                <div className='lg:ml-12'>
+                                                                                <label onClick={() => setDetailsTask(task)} for="details-task-modal" className="btn btn-primary rounded-xl mx-2 text-white">Details</label>
 
-                    <label onClick={() => setDetailsTask(task)} for="details-task-modal" className="btn btn-primary rounded-xl mx-4 text-white">Details</label>
+                                                                                <label onClick={() => setCompleteTask(task)} for="complete-task-modal" className="btn btn-outline btn-error rounded-2xl">Complete</label>
 
-                    <label onClick={() => setCompleteTask(task)} for="complete-task-modal" className="btn btn-outline btn-error rounded-2xl">Complete</label>
+                                                                            </div>
 
-                </div>
-
-            </td>
-        </tr>
-    )
-}
+                                                                        </td>
+                                                                    </tr>
+                                                                )
+                                                            }
 
                                                             )}
                                                     </tbody>
