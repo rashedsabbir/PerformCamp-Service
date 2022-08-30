@@ -1,4 +1,4 @@
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
@@ -34,7 +34,9 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
   }
 
   
-
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const handleUpdate = (event) => {
     event.preventDefault();
@@ -72,7 +74,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
       </button>
       <Modal
         isOpen={modalIsOpen}
-        
+        onRequestClose={closeModal}
         onAfterOpen={afterOpenModal}
         
         style={customStyles}
@@ -80,6 +82,9 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
         <div className='flex justify-end'>
         
         </div>
+        <button onClick={closeModal} className="btn flex justify-end btn-sm btn-error">
+        <FontAwesomeIcon className='text-white ' icon={faXmarkCircle}></FontAwesomeIcon>
+        </button>
         <div className='text-center text-white'>Update task!</div>
         <div className=" mt-3">
           <form className="container " onSubmit={handleUpdate}>
