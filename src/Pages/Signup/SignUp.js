@@ -21,18 +21,18 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile] = useUpdateProfile(auth);
     const navigate = useNavigate();
-    const location = useLocation();
+    
     const [token] = useToken(user || gUser);
-    const from = location.state?.from?.pathname || '/';
+    
 
     let signInError;
 
     useEffect(() => {
 
         if (token) {
-            navigate(from, { replace: true });
+            navigate('/');
         }
-    }, [token, from, navigate]);
+    }, [token, navigate]);
 
 
     if (loading || gLoading) {
