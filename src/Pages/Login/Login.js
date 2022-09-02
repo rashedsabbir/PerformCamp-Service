@@ -21,15 +21,15 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, resetSending, ResetError] = useSendPasswordResetEmail(auth);
     const navigate = useNavigate();
-    const location = useLocation();
+    
     const [token] = useToken(user || gUser);
-    const from = location.state?.from?.pathname || '/';
+    
 
     useEffect(() => {
         if (token) {
-            navigate(from, { replace: true });
+            navigate('/');
         }
-    }, [token, from, navigate]);
+    }, [token, navigate]);
 
     let signInError;
 

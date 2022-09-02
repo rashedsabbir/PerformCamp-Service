@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddTask.css'
+
 import banner_1 from '../../../Images/logo/BrosCreation3.PNG'
 import 'tw-elements';
 import { toast, ToastContainer } from 'react-toastify';
@@ -40,8 +40,8 @@ const AddTask = () => {
     };
 
     return (
-        <div className=''>
-            <form id="myForm" className="shadow-lg" onSubmit={handleSubmit(onSubmit)}>
+        <div className='lg:w-6/12'>
+            <form id="myForm" className="lg:shadow-lg " onSubmit={handleSubmit(onSubmit)}>
                 <div className="">
                     <div className="container mx-auto  rounded">
                         <div className="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5  ">
@@ -106,40 +106,9 @@ const AddTask = () => {
 
                 </div>
 
-                <div className="container mx-auto mt-6 rounded  ">
-
-                    <div className="flex items-center text-center mx-auto">
-                        <div className="container mx-auto">
-                            <div className="mx-auto ">
-                                <p className="text-lg text-black font-bold">Alerts</p>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 pt-1">Send updates of this activity.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="container flex justify-center items-center mx-auto pb-6">
-                        <div className=" pb-4 border-r border-gray-300 dark:border-gray-700 px-8 text-gray-800 ">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-mail" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <rect x="3" y="5" width="18" height="14" rx="2" />
-                                <polyline points="3 7 12 13 21 7" />
-                            </svg>
-                            <p className="text-sm font-bold  text-gray-800 ">Via Email</p>
-                        </div>
-                        <div className="px-8">
-                            <div className="flex justify-between items-center mb-8 mt-4">
-                                <div className="w-9/12">
-                                    <div className='border-b border-gray-300'>
-                                        <p className="text-sm  text-gray-800  pb-1">Email notification</p>
-                                    </div>
-                                    <p id="cb1" className="text-sm pt-2 text-gray-600 ">Send Email notification of this task to the employee</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div className="container mx-auto w-11/12 xl:w-full">
-                    <div className="w-full pb-10 sm:px-0  flex justify-center">
+                    <div className="w-full pb-10 pt-5 sm:px-0  flex justify-center">
                         <button role="button" aria-label="cancel form" className="bg-error focus:outline-none transition duration-150 ease-in-out hover:bg-gray-400  rounded text-gray-100 px-6 py-2 text-xs mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700">Cancel</button>
                         <button role="button" aria-label="Save form" className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-green-400 focus:outline-none transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 mr-4 py-2 text-sm" type="submit">Save</button>
                     </div>
