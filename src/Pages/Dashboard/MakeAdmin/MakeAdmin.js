@@ -9,7 +9,7 @@ const MakeAdmin = () => {
 
   const roleChangeRef = useRef()
   useEffect(() => {
-    fetch('https://whispering-gorge-29329.herokuapp.com/user')
+    fetch('https://web-production-9e42.up.railway.app/user')
       .then(res => res.json())
       .then(data => setUserData(data))
   }, [userData, isReload])
@@ -21,7 +21,7 @@ const MakeAdmin = () => {
     //   // document.querySelector('.output').textContent = output;
     //   console.log(output);
 
-    fetch(`https://whispering-gorge-29329.herokuapp.com/user_admin/${email}`, {
+    fetch(`https://web-production-9e42.up.railway.app/user_admin/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -43,7 +43,7 @@ const MakeAdmin = () => {
 
   const handleDelete = (email) =>{
 
-    fetch(`https://whispering-gorge-29329.herokuapp.com/user/${email}`, {
+    fetch(`https://web-production-9e42.up.railway.app/user/${email}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

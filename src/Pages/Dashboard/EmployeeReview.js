@@ -16,7 +16,7 @@ const EmployeeReview = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://whispering-gorge-29329.herokuapp.com/employeeReviews/${user?.email}`, {
+            fetch(`https://web-production-9e42.up.railway.app/employeeReviews/${user?.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -52,7 +52,7 @@ const EmployeeReview = () => {
             ratings: ratings
         }
 
-        fetch(`https://whispering-gorge-29329.herokuapp.com/leaderboard/${user?.email}`, {
+        fetch(`https://web-production-9e42.up.railway.app/leaderboard/${user?.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

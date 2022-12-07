@@ -16,7 +16,7 @@ function Deadline() {
  
   useEffect(() => {
     if (user) {
-        fetch(`https://whispering-gorge-29329.herokuapp.com/task/${user?.email}`, {
+        fetch(`https://web-production-9e42.up.railway.app/task/${user?.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

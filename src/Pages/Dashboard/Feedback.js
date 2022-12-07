@@ -11,7 +11,7 @@ const Feedback = () => {
     const [user] = useAuthState(auth);
     useEffect(() => {
         if (user) {
-            fetch(`https://whispering-gorge-29329.herokuapp.com/feedback/${user?.email}`, {
+            fetch(`https://web-production-9e42.up.railway.app/feedback/${user?.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -40,7 +40,7 @@ const Feedback = () => {
 
         }
 
-        fetch('https://whispering-gorge-29329.herokuapp.com/pendingReview', {
+        fetch('https://web-production-9e42.up.railway.app/pendingReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -58,7 +58,7 @@ const Feedback = () => {
 
             })
 
-        fetch(`https://whispering-gorge-29329.herokuapp.com/feedback/${task._id}`, {
+        fetch(`https://web-production-9e42.up.railway.app/feedback/${task._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

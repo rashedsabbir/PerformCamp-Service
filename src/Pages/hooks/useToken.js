@@ -19,7 +19,7 @@ const useToken = user => {
         if (email) {
 
 
-            fetch(`https://whispering-gorge-29329.herokuapp.com/user/${email}`, {
+            fetch(`https://web-production-9e42.up.railway.app/user/${email}`, {
 
                 method: 'PUT',
                 headers: {

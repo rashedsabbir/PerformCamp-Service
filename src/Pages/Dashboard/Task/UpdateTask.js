@@ -46,7 +46,7 @@ export default function UpdateModal({ id, setIsReload, isReload }) {
       setIsOpen(false);
     }
 
-    fetch(`https://whispering-gorge-29329.herokuapp.com/task/${id}`, {
+    fetch(`https://web-production-9e42.up.railway.app/task/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -29,7 +29,7 @@ const AddEmployee = () => {
                         designation: data.designation,
                         img: img
                     }
-                    fetch('https://whispering-gorge-29329.herokuapp.com/employee', {
+                    fetch('https://web-production-9e42.up.railway.app/employee', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',

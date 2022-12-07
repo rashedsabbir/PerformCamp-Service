@@ -11,7 +11,7 @@ const LeaderBoard = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://whispering-gorge-29329.herokuapp.com/leaderboard`, {
+            fetch(`https://web-production-9e42.up.railway.app/leaderboard`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

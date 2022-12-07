@@ -1,5 +1,5 @@
 import React from "react";
-import tippy from 'tippy.js'
+// import tippy from 'tippy.js'
 const ChatwootWidget = () => {
 
     // Add Chatwoot Settings
